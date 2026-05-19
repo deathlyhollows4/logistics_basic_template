@@ -1,0 +1,21 @@
+@import 'tailwindcss' source('../');
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  outline-color: #f97316;
+}
