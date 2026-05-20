@@ -1,9 +1,12 @@
 import { expect, request, test } from "@playwright/test";
 
-const ADMIN_EMAIL = "vidhantomar2004@gmail.com";
-const ADMIN_PASSWORD = "admin123";
+const ADMIN_EMAIL = process.env.TEST_ADMIN_EMAIL || "";
+const ADMIN_PASSWORD = process.env.TEST_ADMIN_PASSWORD || "";
 
 async function loginAsAdmin(page: Parameters<Parameters<typeof test>[1]>[0]["page"]) {
+  if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+    throw new Error("TEST_ADMIN_EMAIL and TEST_ADMIN_PASSWORD must be set in the environment to run admin tests.");
+  }
   const apiContext = await request.newContext();
   const loginResp = await apiContext.post("/api/admin/login", {
     data: { email: ADMIN_EMAIL, password: ADMIN_PASSWORD },
@@ -91,7 +94,7 @@ test.describe("Admin login page", () => {
   test("renders login form with email pre-filled", async ({ page }) => {
     await page.goto("/admin/login", { waitUntil: "networkidle" });
     await expect(page.locator("h1")).toContainText("Sign in");
-    await expect(page.locator('input[type="email"]')).toHaveValue(ADMIN_EMAIL);
+    await expect(page.locator('input[type="email"]')).toHaveValue("");
     await expect(page.locator('input[type="password"]')).toBeVisible();
     await expect(page.getByRole("button", { name: /sign in/i })).toBeVisible();
   });

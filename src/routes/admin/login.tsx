@@ -7,7 +7,7 @@ export const Route = createFileRoute('/admin/login')({
 })
 
 function AdminLogin() {
-  const [email, setEmail] = useState('vidhantomar2004@gmail.com')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)

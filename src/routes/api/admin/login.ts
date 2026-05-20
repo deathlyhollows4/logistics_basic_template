@@ -13,6 +13,11 @@ export const Route = createFileRoute('/api/admin/login')({
         const email = payload?.email || ''
         const password = payload?.password || ''
 
+        // Bound input lengths to prevent CPU DoS via scrypt with very large inputs.
+        if (email.length > 254 || password.length > 1024) {
+          return Response.json({ message: 'Invalid admin credentials.' }, { status: 401 })
+        }
+
         if (!verifyAdminCredentials(email, password)) {
           return Response.json({ message: 'Invalid admin credentials.' }, { status: 401 })
         }

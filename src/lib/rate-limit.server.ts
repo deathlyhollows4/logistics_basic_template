@@ -18,11 +18,17 @@ export function checkBookingRateLimit(request: Request) {
 }
 
 function getClientIp(request: Request) {
+  // Prefer headers injected by the trusted edge proxy.
+  const cfIp = request.headers.get('cf-connecting-ip')
+  if (cfIp) return cfIp
+  const realIp = request.headers.get('x-real-ip')
+  if (realIp) return realIp
+  // Use the LAST entry of X-Forwarded-For (added by the trusted edge proxy),
+  // never the first which is attacker-controlled.
   const forwardedFor = request.headers.get('x-forwarded-for')
-
   if (forwardedFor) {
-    return forwardedFor.split(',')[0]?.trim() || 'unknown'
+    const parts = forwardedFor.split(',')
+    return parts[parts.length - 1]?.trim() || 'unknown'
   }
-
-  return request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || 'unknown'
+  return 'unknown'
 }

@@ -2,18 +2,14 @@ import { createFileRoute, redirect } from '@tanstack/react-router'
 import { Download } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { AdminShell } from '../../components/AdminShell'
+import { checkAdminAuth } from '../../lib/admin-auth.functions'
 import type { Booking, ExportFormat, ExportRange } from '../../lib/types'
 import { exportRanges } from '../../lib/validation'
 
 export const Route = createFileRoute('/admin/export')({
   beforeLoad: async ({ location }) => {
-    if (typeof window === 'undefined') {
-      return
-    }
-
-    const response = await fetch('/api/admin/me')
-
-    if (!response.ok) {
+    const result = await checkAdminAuth()
+    if (!result.authenticated) {
       throw redirect({
         to: '/admin/login',
         search: {
