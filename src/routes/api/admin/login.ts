@@ -1,10 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { createAdminCookie, getAdminEmail, verifyAdminCredentials } from '../../../lib/auth.server'
+import { checkLoginRateLimit } from '../../../lib/rate-limit.server'
 
 export const Route = createFileRoute('/api/admin/login')({
   server: {
     handlers: {
       POST: async ({ request }) => {
+        if (!checkLoginRateLimit(request)) {
+          return Response.json(
+            { message: 'Too many attempts. Try again later.' },
+            { status: 429 },
+          )
+        }
+
         const payload = (await request.json().catch(() => null)) as {
           email?: string
           password?: string
