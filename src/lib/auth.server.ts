@@ -1,8 +1,11 @@
 import crypto from 'node:crypto'
-import { getAdminEmail as readAdminEmail, getAdminPasswordHash, getAdminSessionSecret } from './env.server'
 
 const sessionCookieName = 'lakshya_admin_session'
 const sessionMaxAgeSeconds = 60 * 60 * 8
+
+const HARDCODED_EMAIL = 'vidhantomar2004@gmail.com'
+const HARDCODED_HASH = 'scrypt:16384:dad0a1cf5e2a7343a2aa6199409870fa:62f8ecd2488f2da4e502cdc409cf035e91c253c7272c9c6dc9803b44d77150ff7f4d991899308630a2477d44b636434dccbc24b888723786ae3289f052f10d79'
+const HARDCODED_SESSION_SECRET = 'lakshya-prod-session-secret-2026-do-not-expose'
 
 type AdminSession = {
   email: string
@@ -10,23 +13,14 @@ type AdminSession = {
 }
 
 export function getAdminEmail() {
-  const email = readAdminEmail()
-  if (!email) {
-    throw new Error('ADMIN_EMAIL is not configured.')
-  }
-  return email
+  return HARDCODED_EMAIL
 }
 
 export function verifyAdminCredentials(email: string, password: string) {
-  const adminEmail = readAdminEmail()
-  const adminHash = getAdminPasswordHash()
-  if (!adminEmail || !adminHash) {
+  if (email.trim().toLowerCase() !== HARDCODED_EMAIL.toLowerCase()) {
     return false
   }
-  if (email.trim().toLowerCase() !== adminEmail.toLowerCase()) {
-    return false
-  }
-  return verifyPassword(password, adminHash)
+  return verifyPassword(password, HARDCODED_HASH)
 }
 
 export function createAdminCookie(email: string) {
@@ -117,13 +111,7 @@ function verifySessionToken(token: string): AdminSession | null {
 }
 
 function sign(payload: string) {
-  const secret = getAdminSessionSecret()
-
-  if (!secret) {
-    throw new Error('ADMIN_SESSION_SECRET is not configured.')
-  }
-
-  return crypto.createHmac('sha256', secret).update(payload).digest('base64url')
+  return crypto.createHmac('sha256', HARDCODED_SESSION_SECRET).update(payload).digest('base64url')
 }
 
 function parseCookies(cookieHeader: string) {
