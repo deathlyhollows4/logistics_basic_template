@@ -46,7 +46,7 @@ export function bookingsToCsv(bookings: Booking[]) {
     'Created At (Asia/Kolkata)': '',
   })
 
-  return [
+  return '\uFEFF' + [
     headers.map(escapeCsv).join(','),
     ...rows.map((row) => headers.map((header) => escapeCsv(String(row[header as keyof typeof row] ?? ''))).join(',')),
   ].join('\n')
@@ -71,28 +71,30 @@ export async function bookingsToXlsx(bookings: Booking[]) {
     { header: 'Created At (Asia/Kolkata)', key: 'createdAtIndia', width: 28 },
   ]
 
-  worksheet.addRows(
-    bookings.map((booking) => ({
-      contactNumber: booking.contactNumber,
-      createdAtIndia: formatIndiaDate(booking.createdAt),
-      createdAtUtc: booking.createdAt,
-      dropLocation: booking.dropLocation,
-      email: booking.email,
-      id: booking.id,
-      message: booking.message,
-      name: booking.name,
-      pickupLocation: booking.pickupLocation,
-      status: booking.status,
-    })),
-  )
+  if (bookings.length > 0) {
+    worksheet.addRows(
+      bookings.map((booking) => ({
+        contactNumber: booking.contactNumber,
+        createdAtIndia: formatIndiaDate(booking.createdAt),
+        createdAtUtc: booking.createdAt,
+        dropLocation: booking.dropLocation,
+        email: booking.email,
+        id: booking.id,
+        message: booking.message,
+        name: booking.name,
+        pickupLocation: booking.pickupLocation,
+        status: booking.status,
+      })),
+    )
 
-  worksheet.getRow(1).font = { bold: true }
-  worksheet.getRow(1).fill = {
-    fgColor: { argb: 'FFEFF6FF' },
-    pattern: 'solid',
-    type: 'pattern',
+    worksheet.getRow(1).font = { bold: true }
+    worksheet.getRow(1).fill = {
+      fgColor: { argb: 'FFEFF6FF' },
+      pattern: 'solid',
+      type: 'pattern',
+    }
+    worksheet.views = [{ state: 'frozen', ySplit: 1 }]
   }
-  worksheet.views = [{ state: 'frozen', ySplit: 1 }]
 
   return workbook.xlsx.writeBuffer()
 }

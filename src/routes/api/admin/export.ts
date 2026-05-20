@@ -25,7 +25,7 @@ export const Route = createFileRoute('/api/admin/export')({
 
         if (format === 'xlsx') {
           const workbook = await bookingsToXlsx(bookings)
-          return new Response(new Uint8Array(workbook), {
+          return new Response(workbook, {
             headers: {
               'Cache-Control': 'no-store',
               'Content-Disposition': `attachment; filename="${exportFileName(range, 'xlsx')}"`,
