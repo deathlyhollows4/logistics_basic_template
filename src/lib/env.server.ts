@@ -1,5 +1,5 @@
 export function getAdminEmail() {
-  return process.env.ADMIN_EMAIL || 'vidhantomar2004@gmail.com'
+  return process.env.ADMIN_EMAIL || ''
 }
 
 export function getAdminPasswordHash() {
