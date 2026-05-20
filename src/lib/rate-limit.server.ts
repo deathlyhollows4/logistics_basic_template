@@ -1,20 +1,32 @@
-const hits = new Map<string, number[]>()
-const windowMs = 10 * 60 * 1000
-const maxHits = 5
+const bookingHits = new Map<string, number[]>()
+const loginHits = new Map<string, number[]>()
 
-export function checkBookingRateLimit(request: Request) {
+function checkLimit(
+  store: Map<string, number[]>,
+  windowMs: number,
+  maxHits: number,
+  request: Request,
+) {
   const ip = getClientIp(request)
   const now = Date.now()
-  const recentHits = (hits.get(ip) || []).filter((timestamp) => now - timestamp < windowMs)
+  const recentHits = (store.get(ip) || []).filter((timestamp) => now - timestamp < windowMs)
 
   if (recentHits.length >= maxHits) {
-    hits.set(ip, recentHits)
+    store.set(ip, recentHits)
     return false
   }
 
   recentHits.push(now)
-  hits.set(ip, recentHits)
+  store.set(ip, recentHits)
   return true
+}
+
+export function checkBookingRateLimit(request: Request) {
+  return checkLimit(bookingHits, 10 * 60 * 1000, 5, request)
+}
+
+export function checkLoginRateLimit(request: Request) {
+  return checkLimit(loginHits, 15 * 60 * 1000, 10, request)
 }
 
 function getClientIp(request: Request) {
