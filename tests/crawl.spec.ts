@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
-const ADMIN_EMAIL = "vidhantomar2004@gmail.com";
-const ADMIN_PASSWORD = "Vidhan@135";
+const ADMIN_EMAIL = process.env.TEST_ADMIN_EMAIL || "";
+const ADMIN_PASSWORD = process.env.TEST_ADMIN_PASSWORD || "";
 
 // ── Helper: login via form (works on real domain) ─────────────────────────
 async function loginViaForm(page: Parameters<Parameters<typeof test>[1]>[0]["page"]) {
