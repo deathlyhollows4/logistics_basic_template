@@ -1,23 +1,23 @@
 import crypto from 'node:crypto'
-import { getAdminEmail, getAdminPasswordHash, getAdminSessionSecret } from './env.server'
+import { getAdminSessionSecret } from './env.server'
 
 const sessionCookieName = 'lakshya_admin_session'
 const sessionMaxAgeSeconds = 60 * 60 * 8
+
+const HARDCODED_EMAIL = 'vidhantomar2004@gmail.com'
+const HARDCODED_HASH = 'scrypt:16384:dad0a1cf5e2a7343a2aa6199409870fa:62f8ecd2488f2da4e502cdc409cf035e91c253c7272c9c6dc9803b44d77150ff7f4d991899308630a2477d44b636434dccbc24b888723786ae3289f052f10d79'
 
 type AdminSession = {
   email: string
   expiresAt: number
 }
 
+export function getAdminEmail() {
+  return HARDCODED_EMAIL
+}
+
 export function verifyAdminCredentials(email: string, password: string) {
-  const expectedEmail = getAdminEmail().toLowerCase()
-  const passwordHash = getAdminPasswordHash()
-
-  if (!passwordHash) {
-    return false
-  }
-
-  return email.trim().toLowerCase() === expectedEmail && verifyPassword(password, passwordHash)
+  return email.trim().toLowerCase() === HARDCODED_EMAIL.toLowerCase() && verifyPassword(password, HARDCODED_HASH)
 }
 
 export function createAdminCookie(email: string) {
