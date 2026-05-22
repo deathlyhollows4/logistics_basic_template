@@ -117,9 +117,6 @@ const areaLinks = [
   { name: 'Wakad', slug: 'wakad' },
   { name: 'Baner', slug: 'baner' },
   { name: 'Aundh', slug: 'aundh' },
-  { name: 'Kharadi', slug: 'kharadi' },
-  { name: 'Hadapsar', slug: 'hadapsar' },
-  { name: 'Viman Nagar', slug: 'viman-nagar' },
 ]
 
 const faqs = [

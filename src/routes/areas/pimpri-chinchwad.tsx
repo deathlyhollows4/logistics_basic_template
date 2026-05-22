@@ -1,17 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import {
-  Briefcase,
-  Building2,
-  Car,
-  CheckCircle,
-  Clock,
-  Home,
-  MapPin,
-  Monitor,
-  Package,
-  Star,
-  Truck,
-} from 'lucide-react'
+import { Building2, Clock, MapPin, Star, Truck } from 'lucide-react'
 import { MobileBar } from '../../components/MobileBar'
 import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
@@ -123,32 +111,6 @@ const commercialServices = [
   { title: 'Pimpri-Chinchwad Industrial Belt', desc: 'Coverage of the entire PCMC industrial corridor from Pimpri to Chinchwad. ODC cargo permits and factory gate pass handling included.' },
 ]
 
-const serviceCards = [
-  {
-    icon: Home,
-    title: 'Home Shifting',
-    desc: 'Packing, loading, transport, and unpacking for apartments and bungalows across PCMC. Branded materials and trained crew.',
-    to: '/services/home-shifting-pune',
-  },
-  {
-    icon: Briefcase,
-    title: 'Office Relocation',
-    desc: 'IT and commercial office shifting across Pimpri-Chinchwad with after-hours service to keep your business running.',
-    to: '/services/office-relocation-pune',
-  },
-  {
-    icon: Car,
-    title: 'Vehicle Transport',
-    desc: 'Secure car and bike transport from PCMC to anywhere in India. GPS tracked, fully insured, door-to-door delivery.',
-    to: '/services/car-bike-transport-pune',
-  },
-  {
-    icon: Package,
-    title: 'Storage Services',
-    desc: 'Warehousing near Nigdi for residents and businesses in Pimpri-Chinchwad. Short and long-term with inventory tracking.',
-    to: '/services/warehousing-storage-pune',
-  },
-]
 
 function PimpriChinchwadAreaPage() {
   return (<>
@@ -302,26 +264,6 @@ function PimpriChinchwadAreaPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-3xl font-bold">Our Services in Pimpri-Chinchwad</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {serviceCards.map((svc) => (
-              <Link
-                key={svc.title}
-                to={svc.to}
-                className="flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-6 transition hover:border-orange-500 hover:shadow-lg"
-              >
-                <svc.icon className="mt-1 shrink-0 text-orange-500" size={32} />
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold">{svc.title}</h3>
-                  <p className="text-slate-600">{svc.desc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">

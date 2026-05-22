@@ -7,6 +7,7 @@ import {
   createRootRoute,
 } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { Navbar } from '../components/Navbar'
 import appCss from '../styles/app.css?url'
 
 export const Route = createRootRoute({
@@ -69,6 +70,7 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <HeadContent />
       </head>
       <body className="bg-slate-100 font-sans text-slate-900 antialiased">
+        <Navbar />
         {children}
         <Scripts />
       </body>

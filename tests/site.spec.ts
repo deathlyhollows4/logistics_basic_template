@@ -21,7 +21,7 @@ test.describe("Landing page", () => {
   test("renders why choose us and contact sections", async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle" });
     await expect(page.getByText("Why Choose Us?")).toBeVisible();
-    await expect(page.getByText("15+")).toBeVisible();
+    await expect(page.getByText("15+").first()).toBeVisible();
     await expect(page.getByText("Contact Us")).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
   });

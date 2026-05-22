@@ -21,9 +21,13 @@ import { Route as BlogPackersMoversChargesPuneRouteImport } from './routes/blog/
 import { Route as BlogMovingDuringMonsoonPuneRouteImport } from './routes/blog/moving-during-monsoon-pune'
 import { Route as BlogHowToChoosePackersMoversRouteImport } from './routes/blog/how-to-choose-packers-movers'
 import { Route as BlogDocumentsForVehicleTransportRouteImport } from './routes/blog/documents-for-vehicle-transport'
+import { Route as AreasWakadRouteImport } from './routes/areas/wakad'
 import { Route as AreasPimpriChinchwadRouteImport } from './routes/areas/pimpri-chinchwad'
 import { Route as AreasNigdiRouteImport } from './routes/areas/nigdi'
+import { Route as AreasHinjewadiRouteImport } from './routes/areas/hinjewadi'
 import { Route as AreasBhosariRouteImport } from './routes/areas/bhosari'
+import { Route as AreasBanerRouteImport } from './routes/areas/baner'
+import { Route as AreasAundhRouteImport } from './routes/areas/aundh'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiBookingsRouteImport } from './routes/api/bookings'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
@@ -103,6 +107,11 @@ const BlogDocumentsForVehicleTransportRoute =
     path: '/blog/documents-for-vehicle-transport',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AreasWakadRoute = AreasWakadRouteImport.update({
+  id: '/areas/wakad',
+  path: '/areas/wakad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AreasPimpriChinchwadRoute = AreasPimpriChinchwadRouteImport.update({
   id: '/areas/pimpri-chinchwad',
   path: '/areas/pimpri-chinchwad',
@@ -113,9 +122,24 @@ const AreasNigdiRoute = AreasNigdiRouteImport.update({
   path: '/areas/nigdi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreasHinjewadiRoute = AreasHinjewadiRouteImport.update({
+  id: '/areas/hinjewadi',
+  path: '/areas/hinjewadi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AreasBhosariRoute = AreasBhosariRouteImport.update({
   id: '/areas/bhosari',
   path: '/areas/bhosari',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasBanerRoute = AreasBanerRouteImport.update({
+  id: '/areas/baner',
+  path: '/areas/baner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasAundhRoute = AreasAundhRouteImport.update({
+  id: '/areas/aundh',
+  path: '/areas/aundh',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
@@ -171,9 +195,13 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/aundh': typeof AreasAundhRoute
+  '/areas/baner': typeof AreasBanerRoute
   '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/hinjewadi': typeof AreasHinjewadiRoute
   '/areas/nigdi': typeof AreasNigdiRoute
   '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/areas/wakad': typeof AreasWakadRoute
   '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
   '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
   '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
@@ -197,9 +225,13 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/aundh': typeof AreasAundhRoute
+  '/areas/baner': typeof AreasBanerRoute
   '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/hinjewadi': typeof AreasHinjewadiRoute
   '/areas/nigdi': typeof AreasNigdiRoute
   '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/areas/wakad': typeof AreasWakadRoute
   '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
   '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
   '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
@@ -224,9 +256,13 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/aundh': typeof AreasAundhRoute
+  '/areas/baner': typeof AreasBanerRoute
   '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/hinjewadi': typeof AreasHinjewadiRoute
   '/areas/nigdi': typeof AreasNigdiRoute
   '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/areas/wakad': typeof AreasWakadRoute
   '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
   '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
   '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
@@ -252,9 +288,13 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/aundh'
+    | '/areas/baner'
     | '/areas/bhosari'
+    | '/areas/hinjewadi'
     | '/areas/nigdi'
     | '/areas/pimpri-chinchwad'
+    | '/areas/wakad'
     | '/blog/documents-for-vehicle-transport'
     | '/blog/how-to-choose-packers-movers'
     | '/blog/moving-during-monsoon-pune'
@@ -278,9 +318,13 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/aundh'
+    | '/areas/baner'
     | '/areas/bhosari'
+    | '/areas/hinjewadi'
     | '/areas/nigdi'
     | '/areas/pimpri-chinchwad'
+    | '/areas/wakad'
     | '/blog/documents-for-vehicle-transport'
     | '/blog/how-to-choose-packers-movers'
     | '/blog/moving-during-monsoon-pune'
@@ -304,9 +348,13 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/aundh'
+    | '/areas/baner'
     | '/areas/bhosari'
+    | '/areas/hinjewadi'
     | '/areas/nigdi'
     | '/areas/pimpri-chinchwad'
+    | '/areas/wakad'
     | '/blog/documents-for-vehicle-transport'
     | '/blog/how-to-choose-packers-movers'
     | '/blog/moving-during-monsoon-pune'
@@ -331,9 +379,13 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   ApiBookingsRoute: typeof ApiBookingsRoute
   ApiContactRoute: typeof ApiContactRoute
+  AreasAundhRoute: typeof AreasAundhRoute
+  AreasBanerRoute: typeof AreasBanerRoute
   AreasBhosariRoute: typeof AreasBhosariRoute
+  AreasHinjewadiRoute: typeof AreasHinjewadiRoute
   AreasNigdiRoute: typeof AreasNigdiRoute
   AreasPimpriChinchwadRoute: typeof AreasPimpriChinchwadRoute
+  AreasWakadRoute: typeof AreasWakadRoute
   BlogDocumentsForVehicleTransportRoute: typeof BlogDocumentsForVehicleTransportRoute
   BlogHowToChoosePackersMoversRoute: typeof BlogHowToChoosePackersMoversRoute
   BlogMovingDuringMonsoonPuneRoute: typeof BlogMovingDuringMonsoonPuneRoute
@@ -437,6 +489,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogDocumentsForVehicleTransportRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas/wakad': {
+      id: '/areas/wakad'
+      path: '/areas/wakad'
+      fullPath: '/areas/wakad'
+      preLoaderRoute: typeof AreasWakadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/areas/pimpri-chinchwad': {
       id: '/areas/pimpri-chinchwad'
       path: '/areas/pimpri-chinchwad'
@@ -451,11 +510,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AreasNigdiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/areas/hinjewadi': {
+      id: '/areas/hinjewadi'
+      path: '/areas/hinjewadi'
+      fullPath: '/areas/hinjewadi'
+      preLoaderRoute: typeof AreasHinjewadiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/areas/bhosari': {
       id: '/areas/bhosari'
       path: '/areas/bhosari'
       fullPath: '/areas/bhosari'
       preLoaderRoute: typeof AreasBhosariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/baner': {
+      id: '/areas/baner'
+      path: '/areas/baner'
+      fullPath: '/areas/baner'
+      preLoaderRoute: typeof AreasBanerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/aundh': {
+      id: '/areas/aundh'
+      path: '/areas/aundh'
+      fullPath: '/areas/aundh'
+      preLoaderRoute: typeof AreasAundhRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/contact': {
@@ -531,9 +611,13 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   ApiBookingsRoute: ApiBookingsRoute,
   ApiContactRoute: ApiContactRoute,
+  AreasAundhRoute: AreasAundhRoute,
+  AreasBanerRoute: AreasBanerRoute,
   AreasBhosariRoute: AreasBhosariRoute,
+  AreasHinjewadiRoute: AreasHinjewadiRoute,
   AreasNigdiRoute: AreasNigdiRoute,
   AreasPimpriChinchwadRoute: AreasPimpriChinchwadRoute,
+  AreasWakadRoute: AreasWakadRoute,
   BlogDocumentsForVehicleTransportRoute: BlogDocumentsForVehicleTransportRoute,
   BlogHowToChoosePackersMoversRoute: BlogHowToChoosePackersMoversRoute,
   BlogMovingDuringMonsoonPuneRoute: BlogMovingDuringMonsoonPuneRoute,

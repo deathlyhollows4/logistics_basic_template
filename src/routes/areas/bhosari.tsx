@@ -1,13 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
-  Briefcase,
-  Building2,
-  Car,
   CheckCircle,
   Factory,
   Home,
   MapPin,
-  Package,
   Star,
   Wrench,
 } from 'lucide-react'
@@ -110,32 +106,6 @@ const landmarks = [
   { name: 'Near Alandi Road', desc: 'Main arterial road for residential moves in eastern Bhosari' },
 ]
 
-const serviceCards = [
-  {
-    icon: Home,
-    title: 'Home Shifting',
-    desc: '1BHK to 4BHK residential shifting across Bhosari. Expert packing crew with modern tools and branded materials.',
-    to: '/services/home-shifting-pune',
-  },
-  {
-    icon: Briefcase,
-    title: 'Office Relocation',
-    desc: 'Commercial and IT office relocation with after-hours service to avoid business disruption.',
-    to: '/services/office-relocation-pune',
-  },
-  {
-    icon: Car,
-    title: 'Vehicle Transport',
-    desc: 'Car and bike transport from Bhosari to anywhere in India. Open and enclosed carrier options.',
-    to: '/services/car-bike-transport-pune',
-  },
-  {
-    icon: Package,
-    title: 'Storage Services',
-    desc: 'Short-term and long-term storage at our Nigdi warehouse. Ideal during factory transitions.',
-    to: '/services/warehousing-storage-pune',
-  },
-]
 
 function BhosariAreaPage() {
   return (<>
@@ -299,26 +269,6 @@ function BhosariAreaPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-3xl font-bold">Our Services in Bhosari</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {serviceCards.map((svc) => (
-              <Link
-                key={svc.title}
-                to={svc.to}
-                className="flex items-start gap-4 rounded-lg border border-slate-200 bg-white p-6 transition hover:border-orange-500 hover:shadow-lg"
-              >
-                <svc.icon className="mt-1 shrink-0 text-orange-500" size={32} />
-                <div>
-                  <h3 className="mb-2 text-xl font-semibold">{svc.title}</h3>
-                  <p className="text-slate-600">{svc.desc}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">

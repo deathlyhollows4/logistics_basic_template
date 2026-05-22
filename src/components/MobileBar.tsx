@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router'
 import { Mail, MessageCircle, Phone } from 'lucide-react'
 
 export function MobileBar() {
@@ -23,13 +22,13 @@ export function MobileBar() {
         <Phone aria-hidden="true" size={18} />
         Call
       </a>
-      <Link
+      <a
         className="flex flex-col items-center justify-center gap-1 bg-blue-600 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
-        to="/contact"
+        href="mailto:lakshyalogisticpackers@gmail.com"
       >
         <Mail aria-hidden="true" size={18} />
         Email
-      </Link>
+      </a>
     </div>
   )
 }

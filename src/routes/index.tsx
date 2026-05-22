@@ -99,9 +99,6 @@ const areas = [
   { name: 'Wakad', slug: 'wakad' },
   { name: 'Baner', slug: 'baner' },
   { name: 'Aundh', slug: 'aundh' },
-  { name: 'Kharadi', slug: 'kharadi' },
-  { name: 'Hadapsar', slug: 'hadapsar' },
-  { name: 'Viman Nagar', slug: 'viman-nagar' },
 ]
 
 const testimonials = [
@@ -232,7 +229,7 @@ function LakshyaLogisticPackers() {
           <div className="grid gap-6 md:grid-cols-4">
             <div className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-sm">
               <Clock aria-hidden="true" className="mx-auto mb-3 text-orange-500" size={32} />
-              <h3 className="text-4xl font-bold text-blue-950">5+</h3>
+              <h3 className="text-4xl font-bold text-blue-950">15+</h3>
               <p className="mt-2 text-sm text-slate-600">Years Experience</p>
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-sm">
@@ -465,7 +462,7 @@ function LakshyaLogisticPackers() {
             </p>
             <a
               className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
-              href="https://maps.google.com/?q=Lakshya+Logistic+Packers+Near+Nigdi+Bus+Stop+Pune"
+              href="https://www.google.com/maps/dir/?api=1&destination=18.6569,73.7750"
               rel="noreferrer"
               target="_blank"
             >

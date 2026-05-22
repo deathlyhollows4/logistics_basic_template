@@ -4,38 +4,38 @@ import { MobileBar } from '../../components/MobileBar'
 import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
-export const Route = createFileRoute('/areas/nigdi')({
+export const Route = createFileRoute('/areas/wakad')({
   head: () => ({
     meta: [
       {
         title:
-          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+          'Packers and Movers in Wakad, Pune — Lakshya Logistic Packers',
       },
       {
         name: 'description',
         content:
-          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Call +91 8239059640 for free quote.',
+          'Lakshya Logistic Packers in Wakad, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Kaspate Wasti, Datta Mandir, Kalewadi Phata, Thergaon. Call +91 8239059640 for free quote.',
       },
       {
         name: 'keywords',
         content:
-          'packers and movers Nigdi, home shifting Nigdi, office shifting Nigdi, car transport Nigdi, best movers Nigdi, relocation services Nigdi',
+          'packers and movers Wakad, home shifting Wakad, office shifting Wakad, vehicle transport Wakad, best movers Wakad, relocation services Wakad',
       },
       { name: 'robots', content: 'index, follow' },
       { property: 'og:type', content: 'website' },
       {
         property: 'og:title',
         content:
-          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+          'Packers and Movers in Wakad, Pune — Lakshya Logistic Packers',
       },
       {
         property: 'og:description',
         content:
-          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Free quote.',
+          'Lakshya Logistic Packers in Wakad, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Kaspate Wasti, Datta Mandir, Kalewadi Phata, Thergaon. Free quote.',
       },
       {
         property: 'og:url',
-        content: 'https://habbits2grow.com/areas/nigdi',
+        content: 'https://habbits2grow.com/areas/wakad',
       },
       {
         property: 'og:image',
@@ -46,12 +46,12 @@ export const Route = createFileRoute('/areas/nigdi')({
       {
         name: 'twitter:title',
         content:
-          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+          'Packers and Movers in Wakad, Pune — Lakshya Logistic Packers',
       },
       {
         name: 'twitter:description',
         content:
-          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Free quote.',
+          'Lakshya Logistic Packers in Wakad, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Kaspate Wasti, Datta Mandir, Kalewadi Phata, Thergaon. Free quote.',
       },
       {
         name: 'twitter:image',
@@ -59,45 +59,44 @@ export const Route = createFileRoute('/areas/nigdi')({
           'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
       },
     ],
-    links: [{ rel: 'canonical', href: 'https://habbits2grow.com/areas/nigdi' }],
+    links: [{ rel: 'canonical', href: 'https://habbits2grow.com/areas/wakad' }],
   }),
-  component: NigdiAreaPage,
+  component: WakadAreaPage,
 })
 
 const microAreas = [
-  'Sector 21', 'Sector 22', 'Sector 23', 'Sector 24',
-  'Sector 25', 'Sector 26', 'Sector 27', 'Transport Nagar',
-  'Pradhikaran', 'Akurdi Railway Station Area', 'Bijlinagar',
+  'Kaspate Wasti', 'Datta Mandir Road', 'Kalewadi Phata',
+  'Thergaon', 'Rahatani', 'Tathawade', 'Wakad Chowk',
 ]
 
 const landmarks = [
-  { icon: MapPin, name: 'Near Akurdi Railway Station', desc: '2 min from the station — easy access for outstation moves' },
-  { icon: MapPin, name: 'Near Transport Nagar, Sector 23', desc: 'Our office is right inside Transport Nagar — your neighborhood movers' },
-  { icon: MapPin, name: 'Near Bhakti Shakti Chowk', desc: 'Central junction connecting Nigdi to PCMC and Pune city' },
-  { icon: MapPin, name: 'Near Pradhikaran Garden', desc: 'Well-known landmark for all Pradhikaran area residents' },
+  { icon: MapPin, name: 'Near Datta Mandir', desc: 'Central landmark of Wakad — easy to locate us for home surveys' },
+  { icon: MapPin, name: 'Near Pune-Bangalore Highway', desc: 'Direct highway access for intercity and outstation moves' },
+  { icon: MapPin, name: 'Near Kaspate Wasti', desc: 'Core residential area of Wakad with high-rise apartments and societies' },
+  { icon: MapPin, name: 'Near Sayaji Hotel', desc: 'Well-known hotel and landmark on the highway, close to Wakad junction' },
 ]
 
 const faqs = [
   {
-    q: 'How much does home shifting cost in Nigdi?',
-    a: 'A 1BHK shift within Nigdi typically costs Rs 4,000–6,000, a 2BHK costs Rs 6,000–9,000, and a 3BHK costs Rs 9,000–14,000. These include packing material, loading, transport, and unloading. Final pricing depends on the volume of goods and floor level with or without lift access.',
+    q: 'How much does home shifting cost in Wakad?',
+    a: 'A 1BHK shift within Wakad typically costs Rs 4,000–7,000, a 2BHK costs Rs 7,000–11,000, and a 3BHK costs Rs 11,000–18,000. These include packing material, loading, transport, and unloading. Final pricing depends on the volume of goods and floor level with or without lift access.',
   },
   {
-    q: 'Do you do local shifting within Nigdi only?',
-    a: 'Yes, we handle both intra-Nigdi shifting (e.g., Sector 23 to Sector 26) and intercity moves from Nigdi to anywhere in India. Being based in Nigdi means zero travel time and zero travel surcharge for local moves.',
+    q: 'Do you have experience with high-rise apartment moves?',
+    a: 'Yes, we move families in and out of Wakad\'s high-rise societies daily. Our team is trained in elevator protocols, service-lift booking, society rules for moving hours, and protecting common areas during the move. We handle everything from studio apartments to large 4BHK penthouses.',
   },
   {
-    q: 'How quickly can you start after I call?',
-    a: 'We can reach your location for a free survey within 15–30 minutes of your call in Nigdi. Same-day packing can often be arranged for local moves. For intercity moves, we typically need 1–2 days for planning and vehicle arrangement.',
+    q: 'Can you do intercity moves from Wakad?',
+    a: 'Absolutely — our location right off the Pune-Bangalore Highway gives us a major advantage for intercity moves. We can dispatch trucks to Mumbai, Bangalore, Hyderabad, and across India faster from Wakad than from most other Pune locations. Highway access means no city traffic delays.',
   },
   {
-    q: 'Is parking available for your trucks in Nigdi societies?',
-    a: 'Most societies in sectors 21–27 and Pradhikaran have adequate parking or service lanes. Our team is familiar with every society\'s layout. For societies with restricted access, we use smaller tempos and shuttle the load to the main truck parked nearby.',
+    q: 'Is same-day shifting available in Wakad?',
+    a: 'Yes, we offer same-day packing and moving for local shifts within Wakad and nearby areas like Thergaon, Rahatani, and Tathawade. Call us by 10 AM and we can have a team at your doorstep within the hour for a survey, with packing starting the same day.',
   },
 ]
 
 
-function NigdiAreaPage() {
+function WakadAreaPage() {
   return (<>
       <script
         type="application/ld+json"
@@ -108,23 +107,23 @@ function NigdiAreaPage() {
             name: 'Lakshya Logistic Packers',
             image:
               'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
-            '@id': 'https://habbits2grow.com/areas/nigdi#localbusiness',
-            url: 'https://habbits2grow.com/areas/nigdi',
+            '@id': 'https://habbits2grow.com/areas/wakad#localbusiness',
+            url: 'https://habbits2grow.com/areas/wakad',
             telephone: '+91-8239059640',
             priceRange: '₹₹',
             address: {
               '@type': 'PostalAddress',
               streetAddress:
-                'Near Nigdi Bus Stop, Sector 23, Transport Nagar',
-              addressLocality: 'Nigdi',
+                'Near Datta Mandir, Wakad',
+              addressLocality: 'Wakad',
               addressRegion: 'Maharashtra',
-              postalCode: '411044',
+              postalCode: '411057',
               addressCountry: 'IN',
             },
             areaServed: {
               '@type': 'City',
-              name: 'Nigdi',
-              sameAs: 'https://en.wikipedia.org/wiki/Nigdi',
+              name: 'Wakad',
+              sameAs: 'https://en.wikipedia.org/wiki/Wakad',
             },
             openingHoursSpecification: {
               '@type': 'OpeningHoursSpecification',
@@ -159,13 +158,13 @@ function NigdiAreaPage() {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Areas',
-                item: 'https://habbits2grow.com/areas/nigdi',
+                item: 'https://habbits2grow.com/areas/wakad',
               },
               {
                 '@type': 'ListItem',
                 position: 3,
-                name: 'Nigdi',
-                item: 'https://habbits2grow.com/areas/nigdi',
+                name: 'Wakad',
+                item: 'https://habbits2grow.com/areas/wakad',
               },
             ],
           }),
@@ -175,54 +174,53 @@ function NigdiAreaPage() {
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-6xl">
           <h1 className="mb-6 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
-            Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers
+            Packers and Movers in Wakad, Pune — Lakshya Logistic Packers
           </h1>
           <p className="max-w-3xl text-lg leading-8 text-blue-100">
-            Located in Nigdi, we're your neighborhood packers and movers serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi Station zone, and Bijlinagar. Local expertise, faster response, and no travel surcharge for Nigdi residents.
+            Your trusted packers and movers serving Wakad and surrounding areas. Expert in high-rise apartment moves, society-compliant packing, and fast intercity relocation via the Pune-Bangalore Highway.
           </p>
         </div>
       </section>
 
       <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-3xl font-bold">Why We're the Best Choice for Nigdi</h2>
+          <h2 className="mb-10 text-3xl font-bold">Why We're the Best Choice for Wakad</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-6">
               <MapPin className="mt-1 shrink-0 text-orange-500" size={28} />
               <div>
-                <h3 className="mb-2 text-xl font-semibold">We're Locals</h3>
-                <p className="text-slate-600">Our office is right here in Transport Nagar, Sector 23, Nigdi. We live here, our families are here, and we know every lane, sector, and society like the back of our hand. No middlemen — deal directly with us.</p>
+                <h3 className="mb-2 text-xl font-semibold">High-Rise Experts</h3>
+                <p className="text-slate-600">Wakad is known for its high-rise apartments and townships. We've moved families in and out of nearly every major society — from service-lift bookings to society gate rules, we know it all. No surprises on moving day.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-6">
               <Star className="mt-1 shrink-0 text-orange-500" size={28} />
               <div>
-                <h3 className="mb-2 text-xl font-semibold">Fastest Response</h3>
-                <p className="text-slate-600">We reach your doorstep in 15-30 minutes for a free pre-move survey anywhere in Nigdi. No waiting for someone to travel from Pune city — we're already here, ready to start packing today.</p>
+                <h3 className="mb-2 text-xl font-semibold">Highway Access Advantage</h3>
+                <p className="text-slate-600">Located right off the Pune-Bangalore Highway, we dispatch intercity trucks faster than any other area. No city traffic bottlenecks — your goods hit the highway in minutes, cutting hours off Mumbai, Bangalore, and outstation transit times.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-6">
               <Building2 className="mt-1 shrink-0 text-orange-500" size={28} />
               <div>
-                <h3 className="mb-2 text-xl font-semibold">Area Knowledge</h3>
-                <p className="text-slate-600">We know every sector layout, society gate rules, lift dimensions, and traffic patterns. Whether it's Oxy Homez in Sector 27 or Kunal Icon in Pradhikaran, we've moved families in and out of nearly every Nigdi society.</p>
+                <h3 className="mb-2 text-xl font-semibold">Society Familiarity</h3>
+                <p className="text-slate-600">We know the moving policies of every major society in Wakad — from Kaspate Wasti to Datta Mandir Road to Tathawade. Society gate passes, service-lift access hours, and packing-in-advance rules are all handled before moving day.</p>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-slate-200 bg-slate-50 p-6">
               <CheckCircle className="mt-1 shrink-0 text-orange-500" size={28} />
               <div>
-                <h3 className="mb-2 text-xl font-semibold">Local Discounts</h3>
-                <p className="text-slate-600">Nigdi residents get preferential rates because there's zero travel time for our crew. No hidden travel surcharge, no fuel levy — just honest pricing because you're our neighbor. Free survey, no obligation.</p>
+                <h3 className="mb-2 text-xl font-semibold">Fast Intercity Dispatch</h3>
+                <p className="text-slate-600">Need to move to Mumbai, Bangalore, or Hyderabad? Our highway-adjacent location saves you hours. We load, dispatch, and track your shipment with the fastest turnaround time of any mover serving the Wakad area.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-
       <section className="bg-white px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-10 text-3xl font-bold">Areas We Cover in Nigdi</h2>
+          <h2 className="mb-10 text-3xl font-bold">Areas We Cover in Wakad</h2>
           <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
             {microAreas.map((area) => (
               <div key={area} className="flex items-center gap-3 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
@@ -268,9 +266,9 @@ function NigdiAreaPage() {
       <section className="bg-blue-950 px-6 py-20 text-white">
         <div className="mx-auto max-w-6xl text-center">
           <QuoteForm
-            title="Get Quote for Nigdi"
-            subtitle="We're your neighbors in Transport Nagar. Call us or fill the form for a free home survey and estimate — same-day visit guaranteed."
-            ctaText="Get Free Nigdi Quote"
+            title="Get Quote for Wakad"
+            subtitle="Fastest intercity dispatch from Wakad. Call us or fill the form for a free home survey and estimate — same-day visit available."
+            ctaText="Get Free Wakad Quote"
           />
         </div>
       </section>
