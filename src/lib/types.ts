@@ -18,3 +18,11 @@ export type Booking = BookingInput & {
 export type ExportRange = '1h' | '6h' | '12h' | '24h' | '1w' | '1m' | '6m'
 
 export type ExportFormat = 'csv' | 'xlsx'
+
+export type ContactInput = {
+  name: string
+  mobileNumber: string
+  email: string
+  subject: string
+  message: string
+}

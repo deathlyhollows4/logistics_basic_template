@@ -1,5 +1,5 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { Phone, ShieldCheck, Truck } from 'lucide-react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { Mail, MessageCircle, Phone, ShieldCheck, Truck } from 'lucide-react'
 import { useState } from 'react'
 import type { BookingInput } from '../lib/types'
 
@@ -72,10 +72,11 @@ function LakshyaLogisticPackers() {
     setStatus('success')
     setMessage('Thanks. Your quote request has been received and our team will contact you shortly.')
     setForm(initialForm)
+    alert('Our team will reach you soon.')
   }
 
   return (
-    <div className="min-h-screen bg-slate-100 text-slate-900">
+    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1fr_0.9fr] md:items-center md:py-20">
           <div>
@@ -306,7 +307,33 @@ function LakshyaLogisticPackers() {
             <ShieldCheck aria-hidden="true" size={18} />
           </a>
         </div>
-      </footer>
+        </footer>
+
+        <div className="fixed bottom-0 left-0 right-0 z-50 grid grid-cols-3 border-t border-white/10 bg-slate-900 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] md:hidden" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+          <a
+            className="flex flex-col items-center justify-center gap-1 bg-green-600 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+            href="https://wa.me/918239059640"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <MessageCircle aria-hidden="true" size={18} />
+            WhatsApp
+          </a>
+          <a
+            className="flex flex-col items-center justify-center gap-1 bg-orange-500 py-3 text-sm font-semibold text-white transition hover:bg-orange-600"
+            href="tel:+918239059640"
+          >
+            <Phone aria-hidden="true" size={18} />
+            Call
+          </a>
+          <Link
+            className="flex flex-col items-center justify-center gap-1 bg-blue-600 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+            to="/contact"
+          >
+            <Mail aria-hidden="true" size={18} />
+            Email
+          </Link>
+        </div>
     </div>
   )
 }

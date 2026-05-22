@@ -1,4 +1,4 @@
-import type { BookingInput, BookingStatus, ExportFormat, ExportRange } from './types'
+import type { BookingInput, BookingStatus, ContactInput, ExportFormat, ExportRange } from './types'
 
 const statusValues = ['new', 'contacted', 'completed', 'cancelled'] as const
 
@@ -89,6 +89,56 @@ export function validateBookingInput(payload: unknown): {
 
   if (data.message.length > 1000) {
     return { error: 'Please keep the message under 1000 characters.' }
+  }
+
+  return { data }
+}
+
+
+export function validateContactInput(payload: unknown): {
+  data?: ContactInput
+  error?: string
+} {
+  if (!payload || typeof payload !== 'object') {
+    return { error: 'Please complete the contact form.' }
+  }
+
+  const source = payload as Record<string, unknown>
+
+  if (typeof source.company === 'string' && source.company.trim()) {
+    return { error: 'Unable to submit this request.' }
+  }
+
+  const data = {
+    name: clean(source.name),
+    mobileNumber: clean(source.mobileNumber || source.mobile_number),
+    email: clean(source.email).toLowerCase(),
+    subject: clean(source.subject),
+    message: clean(source.message),
+  }
+
+  if (!data.name || !data.mobileNumber || !data.email || !data.message) {
+    return { error: 'Name, mobile number, email, and message are required.' }
+  }
+
+  if (data.name.length < 2 || data.name.length > 80) {
+    return { error: 'Please enter a valid name.' }
+  }
+
+  if (!/^[+\d][\d\s()-]{8,19}$/.test(data.mobileNumber)) {
+    return { error: 'Please enter a valid mobile number.' }
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+    return { error: 'Please enter a valid email address.' }
+  }
+
+  if (data.subject.length > 160) {
+    return { error: 'Please keep the subject under 160 characters.' }
+  }
+
+  if (data.message.length < 1 || data.message.length > 2000) {
+    return { error: 'Please keep the message between 1 and 2000 characters.' }
   }
 
   return { data }

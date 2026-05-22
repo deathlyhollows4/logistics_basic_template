@@ -9,8 +9,10 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiBookingsRouteImport } from './routes/api/bookings'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as AdminExportRouteImport } from './routes/admin/export'
@@ -20,6 +22,11 @@ import { Route as ApiAdminLoginRouteImport } from './routes/api/admin/login'
 import { Route as ApiAdminExportRouteImport } from './routes/api/admin/export'
 import { Route as ApiAdminBookingsRouteImport } from './routes/api/admin/bookings'
 
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -28,6 +35,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiBookingsRoute = ApiBookingsRouteImport.update({
@@ -73,9 +85,11 @@ const ApiAdminBookingsRoute = ApiAdminBookingsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/admin/export': typeof AdminExportRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
+  '/api/contact': typeof ApiContactRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -85,9 +99,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/admin/export': typeof AdminExportRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
+  '/api/contact': typeof ApiContactRoute
   '/admin': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -98,9 +114,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/admin/export': typeof AdminExportRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
+  '/api/contact': typeof ApiContactRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -112,9 +130,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
     | '/admin/export'
     | '/admin/login'
     | '/api/bookings'
+    | '/api/contact'
     | '/admin/'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -124,9 +144,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
     | '/admin/export'
     | '/admin/login'
     | '/api/bookings'
+    | '/api/contact'
     | '/admin'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -136,9 +158,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/contact'
     | '/admin/export'
     | '/admin/login'
     | '/api/bookings'
+    | '/api/contact'
     | '/admin/'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -149,9 +173,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
   AdminExportRoute: typeof AdminExportRoute
   AdminLoginRoute: typeof AdminLoginRoute
   ApiBookingsRoute: typeof ApiBookingsRoute
+  ApiContactRoute: typeof ApiContactRoute
   AdminIndexRoute: typeof AdminIndexRoute
   ApiAdminBookingsRoute: typeof ApiAdminBookingsRoute
   ApiAdminExportRoute: typeof ApiAdminExportRoute
@@ -162,6 +188,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -174,6 +207,13 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/bookings': {
@@ -237,9 +277,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
   AdminExportRoute: AdminExportRoute,
   AdminLoginRoute: AdminLoginRoute,
   ApiBookingsRoute: ApiBookingsRoute,
+  ApiContactRoute: ApiContactRoute,
   AdminIndexRoute: AdminIndexRoute,
   ApiAdminBookingsRoute: ApiAdminBookingsRoute,
   ApiAdminExportRoute: ApiAdminExportRoute,

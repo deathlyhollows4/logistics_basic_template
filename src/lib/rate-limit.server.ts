@@ -29,6 +29,12 @@ export function checkLoginRateLimit(request: Request) {
   return checkLimit(loginHits, 15 * 60 * 1000, 10, request)
 }
 
+const contactHits = new Map<string, number[]>()
+
+export function checkContactRateLimit(request: Request) {
+  return checkLimit(contactHits, 10 * 60 * 1000, 3, request)
+}
+
 function getClientIp(request: Request) {
   // Prefer headers injected by the trusted edge proxy.
   const cfIp = request.headers.get('cf-connecting-ip')
