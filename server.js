@@ -1,5 +1,5 @@
 import { createReadStream } from "node:fs";
-import { access } from "node:fs/promises";
+import { stat } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve, sep } from "node:path";
 import server from "./dist/server/server.js";
@@ -22,18 +22,19 @@ const MIME = {
 function serveStatic(req, res) {
   if (req.method !== "GET" && req.method !== "HEAD") return false;
 
-  const safe = normalize(req.url.split("?")[0]).replace(/^(\.\.[/\\])+/, "");
-  const filePath = join(CLIENT_DIR, safe);
+  const pathname = normalize(req.url.split("?")[0]).replace(/^(\.\.[/\\])+/, "");
+  const filePath = join(CLIENT_DIR, pathname);
+  const ext = extname(filePath).toLowerCase();
 
+  if (!MIME[ext]) return false;
   if (!filePath.startsWith(CLIENT_DIR + sep)) return false;
 
-  return access(filePath)
-    .then(() => {
-      const ext = extname(filePath).toLowerCase();
-      const contentType = MIME[ext] || "application/octet-stream";
+  return stat(filePath)
+    .then((s) => {
+      if (!s.isFile()) return false;
       const stream = createReadStream(filePath);
       res.writeHead(200, {
-        "Content-Type": contentType,
+        "Content-Type": MIME[ext],
         "Cache-Control": "public, max-age=31536000, immutable",
       });
       stream.pipe(res);
