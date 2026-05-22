@@ -3,6 +3,11 @@ import { ShieldCheck } from 'lucide-react'
 import { useState } from 'react'
 
 export const Route = createFileRoute('/admin/login')({
+  head: () => ({
+    meta: [
+      { name: 'robots', content: 'noindex, nofollow' },
+    ],
+  }),
   component: AdminLogin,
 })
 

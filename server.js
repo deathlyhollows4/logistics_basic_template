@@ -2,6 +2,7 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve, sep } from "node:path";
+import { brotliCompressSync, gzipSync } from "node:zlib";
 import server from "./dist/server/server.js";
 
 const port = process.env.PORT || 3000;
@@ -88,6 +89,24 @@ function createRequestProxy(req) {
   };
 }
 
+function shouldCompress(req, resHeaders) {
+  const contentType = resHeaders.get("content-type") || "";
+  const textTypes = [
+    "text/",
+    "application/json",
+    "application/javascript",
+    "image/svg",
+    "application/xml",
+  ];
+  if (!textTypes.some((t) => contentType.startsWith(t))) return { brotli: false, gzip: false };
+  if (resHeaders.get("content-encoding")) return { brotli: false, gzip: false };
+  const acceptEncoding = req.headers["accept-encoding"] || "";
+  return {
+    brotli: acceptEncoding.includes("br"),
+    gzip: acceptEncoding.includes("gzip"),
+  };
+}
+
 createServer(async (req, res) => {
   try {
     const served = await serveStatic(req, res);
@@ -105,22 +124,47 @@ createServer(async (req, res) => {
         headers[key] = value;
       }
     });
-    res.writeHead(response.status, headers);
+
+    let bodyBuffer = null;
     if (response.body) {
       const reader = response.body.getReader();
-      function pump() {
-        return reader.read().then(({ done, value }) => {
-          if (done) {
-            res.end();
-            return;
-          }
-          res.write(value);
-          return pump();
-        });
+      const chunks = [];
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        chunks.push(value);
       }
-      return pump();
+      bodyBuffer = Buffer.concat(chunks);
     }
-    res.end();
+
+    const compress = shouldCompress(req, response.headers);
+    let outBody = bodyBuffer;
+    if (bodyBuffer && bodyBuffer.length >= 1024) {
+      if (compress.brotli) {
+        outBody = brotliCompressSync(bodyBuffer);
+        headers["content-encoding"] = "br";
+      } else if (compress.gzip) {
+        outBody = gzipSync(bodyBuffer);
+        headers["content-encoding"] = "gzip";
+      }
+    }
+
+    const urlPath = req.url.split("?")[0];
+    if (
+      response.status === 200 &&
+      !urlPath.startsWith("/admin/") &&
+      !urlPath.startsWith("/api/") &&
+      (response.headers.get("content-type") || "").startsWith("text/html")
+    ) {
+      headers["cache-control"] = "public, s-maxage=3600, stale-while-revalidate=86400";
+    }
+
+    res.writeHead(response.status, headers);
+    if (outBody) {
+      res.end(outBody);
+    } else {
+      res.end();
+    }
   } catch (err) {
     console.error(err);
     if (!res.headersSent) {

@@ -16,6 +16,67 @@ import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
 export const Route = createFileRoute('/services/office-relocation-pune')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Office Relocation Services Pune — Commercial & Corporate Moving | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'description',
+        content:
+          'Office shifting services in Pune with minimal downtime. IT equipment handling, furniture disassembly, weekend/night moves. Serving Hinjewadi, Kharadi, PCMC IT hubs. Free office move quote.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'office relocation Pune, office shifting services Pune, commercial moving services Pune, corporate relocation Pune, industrial shifting Pune, factory relocation Pune, shop shifting Pune',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Office Relocation Services Pune — Commercial & Corporate Moving | Lakshya Logistic Packers Pune',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Office shifting services in Pune with minimal downtime. IT equipment handling, furniture disassembly, weekend/night moves. Serving Hinjewadi, Kharadi, PCMC IT hubs. Free office move quote.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com/services/office-relocation-pune',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Office Relocation Services Pune — Commercial & Corporate Moving | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Office shifting services in Pune with minimal downtime. IT equipment handling, furniture disassembly, weekend/night moves. Serving Hinjewadi, Kharadi, PCMC IT hubs. Free office move quote.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/services/office-relocation-pune',
+      },
+    ],
+  }),
   component: OfficeRelocationPune,
 })
 
@@ -96,7 +157,54 @@ const faqs = [
 
 function OfficeRelocationPune() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Office Relocation',
+            provider: {
+              '@type': 'LocalBusiness',
+              name: 'Lakshya Logistic Packers',
+            },
+            areaServed: { '@type': 'City', name: 'Pune' },
+            description:
+              'Office relocation services in Pune with minimal downtime. IT equipment handling, furniture disassembly, weekend/night moves.',
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Services',
+                item: 'https://habbits2grow.com/services/office-relocation-pune',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Office Relocation Pune',
+                item: 'https://habbits2grow.com/services/office-relocation-pune',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
@@ -343,5 +451,6 @@ function OfficeRelocationPune() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

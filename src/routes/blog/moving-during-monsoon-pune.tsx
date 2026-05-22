@@ -4,12 +4,179 @@ import { MobileBar } from '../../components/MobileBar'
 import { PageFooter } from '../../components/PageFooter'
 
 export const Route = createFileRoute('/blog/moving-during-monsoon-pune')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Moving During Monsoon in Pune — Tips to Keep Belongings Safe & Dry | Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          'Moving house during Pune monsoon? Waterproof packing guide, best moving dates, route planning, electronics moisture protection. Professional monsoon-proof moving tips.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'moving during monsoon Pune, best time to move in Pune, monsoon packing precautions, rainy season shifting tips Pune, waterproof packing for moving',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'article' },
+      {
+        property: 'og:title',
+        content:
+          'Moving During Monsoon in Pune — Tips to Keep Belongings Safe & Dry',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Moving house during Pune monsoon? Waterproof packing guide, best moving dates, route planning, electronics moisture protection. Professional monsoon-proof moving tips.',
+      },
+      {
+        property: 'og:url',
+        content:
+          'https://habbits2grow.com/blog/moving-during-monsoon-pune',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+      {
+        property: 'article:published_time',
+        content: '2026-05-22T00:00:00+05:30',
+      },
+      {
+        property: 'article:author',
+        content: 'Lakshya Logistic Packers',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Moving During Monsoon in Pune — Tips to Keep Belongings Safe & Dry',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Moving house during Pune monsoon? Waterproof packing guide, best moving dates, route planning, electronics moisture protection. Professional monsoon-proof moving tips.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/blog/moving-during-monsoon-pune',
+      },
+    ],
+  }),
   component: BlogMovingDuringMonsoonPune,
 })
 
 function BlogMovingDuringMonsoonPune() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline:
+              'Moving During Monsoon in Pune — Tips to Keep Belongings Safe & Dry',
+            description:
+              'Moving house during Pune monsoon? Waterproof packing guide, best moving dates, route planning, electronics moisture protection.',
+            author: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+              },
+            },
+            datePublished: '2026-05-22',
+            dateModified: '2026-05-22',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id':
+                'https://habbits2grow.com/blog/moving-during-monsoon-pune',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Is it safe to move during Pune monsoon?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Yes, it is safe to move during monsoon with proper precautions. Professional packers use waterproof packing materials, tarpaulin covers on trucks, and moisture-resistant wrapping for electronics and furniture.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What are the best months for moving in Pune?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'The best months for moving in Pune are October to May, avoiding the peak monsoon months of June to September. However, professional movers can handle monsoon moves with waterproof protocols.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How to protect electronics during monsoon move?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Wrap electronics in plastic sheets before packing, use silica gel packets inside boxes, seal all edges with moisture tape, and avoid loading/unloading during heavy rain. Professional movers use vacuum-sealed wrapping.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://habbits2grow.com/blog/moving-during-monsoon-pune',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Moving During Monsoon in Pune',
+                item: 'https://habbits2grow.com/blog/moving-during-monsoon-pune',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-12 text-white md:py-16">
         <div className="mx-auto max-w-3xl">
           <Link to="/" className="mb-4 inline-flex items-center gap-1 text-sm text-blue-200 hover:text-white">
@@ -161,5 +328,6 @@ function BlogMovingDuringMonsoonPune() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

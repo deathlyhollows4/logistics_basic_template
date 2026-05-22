@@ -15,6 +15,67 @@ import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
 export const Route = createFileRoute('/services/home-shifting-pune')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Home Shifting Services in Pune — Safe Residential Relocation | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'description',
+        content:
+          'Professional home shifting services in Pune. 1BHK to 4BHK relocation, quality packing materials, transit insurance, unpacking. Serving Nigdi, PCMC & all Pune areas. Free estimate. Call +91 8239059640.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'home shifting services Pune, house shifting Pune, residential relocation Pune, household shifting Pune, flat shifting services Pune, domestic shifting services Pune, local home shifting Pune, apartment shifting Pune',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Home Shifting Services in Pune — Safe Residential Relocation | Lakshya Logistic Packers Pune',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Professional home shifting services in Pune. 1BHK to 4BHK relocation, quality packing materials, transit insurance, unpacking. Serving Nigdi, PCMC & all Pune areas. Free estimate.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com/services/home-shifting-pune',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Home Shifting Services in Pune — Safe Residential Relocation | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Professional home shifting services in Pune. 1BHK to 4BHK relocation, quality packing materials, transit insurance, unpacking. Serving Nigdi, PCMC & all Pune areas. Free estimate.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/services/home-shifting-pune',
+      },
+    ],
+  }),
   component: HomeShiftingPune,
 })
 
@@ -90,7 +151,54 @@ const faqs = [
 
 function HomeShiftingPune() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Home Shifting',
+            provider: {
+              '@type': 'LocalBusiness',
+              name: 'Lakshya Logistic Packers',
+            },
+            areaServed: { '@type': 'City', name: 'Pune' },
+            description:
+              'Professional home shifting services in Pune. 1BHK to 4BHK residential relocation with quality packing materials, transit insurance, and unpacking.',
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Services',
+                item: 'https://habbits2grow.com/services/home-shifting-pune',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Home Shifting Pune',
+                item: 'https://habbits2grow.com/services/home-shifting-pune',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
@@ -329,5 +437,6 @@ function HomeShiftingPune() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

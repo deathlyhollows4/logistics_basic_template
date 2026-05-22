@@ -14,6 +14,67 @@ import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
 export const Route = createFileRoute('/services/warehousing-storage-pune')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Warehousing & Storage Services in Pune — Secure, Flexible Space | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'description',
+        content:
+          'Warehouse and storage services in Pune. Short/long term storage, 24/7 security, CCTV, climate control. For households, businesses, and inventory. Book storage space today. Call +91 8239059640.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'warehouse services Pune, storage services Pune, godown services Pune, self storage Pune, temporary storage Pune, goods storage Pune, warehouse for rent Pune',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Warehousing & Storage Services in Pune — Secure, Flexible Space | Lakshya Logistic Packers Pune',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Warehouse and storage services in Pune. Short/long term storage, 24/7 security, CCTV, climate control. For households, businesses, and inventory. Book storage space today.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com/services/warehousing-storage-pune',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Warehousing & Storage Services in Pune — Secure, Flexible Space | Lakshya Logistic Packers Pune',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Warehouse and storage services in Pune. Short/long term storage, 24/7 security, CCTV, climate control. For households, businesses, and inventory. Book storage space today.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/services/warehousing-storage-pune',
+      },
+    ],
+  }),
   component: WarehousingStoragePage,
 })
 
@@ -76,7 +137,54 @@ const faqs = [
 
 function WarehousingStoragePage() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Service',
+            serviceType: 'Warehousing & Storage',
+            provider: {
+              '@type': 'LocalBusiness',
+              name: 'Lakshya Logistic Packers',
+            },
+            areaServed: { '@type': 'City', name: 'Pune' },
+            description:
+              'Secure warehousing and storage services in Pune. Short/long term, 24/7 security, CCTV, climate control. For households and businesses.',
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Services',
+                item: 'https://habbits2grow.com/services/warehousing-storage-pune',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Warehousing & Storage Pune',
+                item: 'https://habbits2grow.com/services/warehousing-storage-pune',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-6xl">
           <h1 className="mb-6 max-w-4xl text-4xl font-bold leading-tight md:text-6xl">
@@ -252,5 +360,6 @@ function WarehousingStoragePage() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

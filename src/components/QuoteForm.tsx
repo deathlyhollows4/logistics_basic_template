@@ -80,7 +80,6 @@ export function QuoteForm({
     setStatus('success')
     setMessage('Thanks. Your quote request has been received and our team will contact you shortly.')
     setForm(initialForm)
-    alert('Our team will reach you soon.')
   }
 
   return (

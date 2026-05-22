@@ -17,6 +17,62 @@ import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
 export const Route = createFileRoute('/areas/nigdi')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Call +91 8239059640 for free quote.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'packers and movers Nigdi, home shifting Nigdi, office shifting Nigdi, car transport Nigdi, best movers Nigdi, relocation services Nigdi',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Free quote.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com/areas/nigdi',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Packers and Movers in Nigdi, Pune — Lakshya Logistic Packers',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Lakshya Logistic Packers in Nigdi, Pune. Home shifting, office relocation, vehicle transport & storage. Serving Sector 21-27, Transport Nagar, Pradhikaran, Akurdi. Free quote.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [{ rel: 'canonical', href: 'https://habbits2grow.com/areas/nigdi' }],
+  }),
   component: NigdiAreaPage,
 })
 
@@ -80,7 +136,79 @@ const serviceCards = [
 ]
 
 function NigdiAreaPage() {
-  return (
+  return (<>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'Lakshya Logistic Packers',
+            image:
+              'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+            '@id': 'https://habbits2grow.com/areas/nigdi#localbusiness',
+            url: 'https://habbits2grow.com/areas/nigdi',
+            telephone: '+91-8239059640',
+            priceRange: '₹₹',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress:
+                'Near Nigdi Bus Stop, Sector 23, Transport Nagar',
+              addressLocality: 'Nigdi',
+              addressRegion: 'Maharashtra',
+              postalCode: '411044',
+              addressCountry: 'IN',
+            },
+            areaServed: {
+              '@type': 'City',
+              name: 'Nigdi',
+              sameAs: 'https://en.wikipedia.org/wiki/Nigdi',
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+              ],
+              opens: '09:00',
+              closes: '19:00',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Areas',
+                item: 'https://habbits2grow.com/areas/nigdi',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Nigdi',
+                item: 'https://habbits2grow.com/areas/nigdi',
+              },
+            ],
+          }),
+        }}
+      />
     <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-6xl">
@@ -208,5 +336,5 @@ function NigdiAreaPage() {
       <PageFooter />
       <MobileBar />
     </div>
-  )
+  </>)
 }

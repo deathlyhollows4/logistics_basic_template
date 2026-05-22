@@ -1,25 +1,8 @@
-import { expect, request, test } from "@playwright/test";
-
-const ADMIN_EMAIL = process.env.TEST_ADMIN_EMAIL || "";
-const ADMIN_PASSWORD = process.env.TEST_ADMIN_PASSWORD || "";
+import { expect, test } from "@playwright/test";
+import { generateAdminCookie } from "./utils";
 
 async function loginAsAdmin(page: Parameters<Parameters<typeof test>[1]>[0]["page"]) {
-  if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
-    throw new Error("TEST_ADMIN_EMAIL and TEST_ADMIN_PASSWORD must be set in the environment to run admin tests.");
-  }
-  const apiContext = await request.newContext();
-  const loginResp = await apiContext.post("/api/admin/login", {
-    data: { email: ADMIN_EMAIL, password: ADMIN_PASSWORD },
-  });
-  expect(loginResp.status()).toBe(200);
-
-  const cookieHeader = loginResp.headers()["set-cookie"];
-  expect(cookieHeader).toBeDefined();
-
-  const [name, value] = cookieHeader.split(";")[0].split("=");
-  await page.context().addCookies([
-    { name, value, domain: "127.0.0.1", path: "/", httpOnly: true, sameSite: "Lax" as const },
-  ]);
+  await page.context().addCookies([generateAdminCookie()]);
 }
 
 // ── Landing page ─────────────────────────────────────────────────────────
@@ -45,7 +28,7 @@ test.describe("Landing page", () => {
 });
 
 // ── Booking form ─────────────────────────────────────────────────────────
-test.describe("Booking form", () => {
+test.describe.serial("Booking form", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/", { waitUntil: "networkidle" });
   });
@@ -89,6 +72,43 @@ test.describe("Booking form", () => {
   });
 });
 
+// ── Contact page ─────────────────────────────────────────────────────────
+test.describe.serial("Contact page", () => {
+  test("renders contact form with heading", async ({ page }) => {
+    await page.goto("/contact", { waitUntil: "networkidle" });
+    await expect(page.getByText("Send Us a Message")).toBeVisible();
+    await expect(page.locator('input[name="name"]')).toBeVisible();
+    await expect(page.locator('input[name="email"]')).toBeVisible();
+    await expect(page.locator('textarea[name="message"]')).toBeVisible();
+    await expect(page.getByRole("button", { name: /send message/i })).toBeVisible();
+  });
+
+  test("submits successfully with valid data", async ({ page }) => {
+    await page.goto("/contact", { waitUntil: "networkidle" });
+    await page.fill('input[name="name"]', "Test Customer");
+    await page.fill('input[name="mobileNumber"]', "+91 9876543210");
+    await page.fill('input[name="email"]', "test@example.com");
+    await page.fill('textarea[name="message"]', "Test contact message");
+    await page.click('button[type="submit"]');
+
+    await expect(page.locator('[aria-live="polite"]')).toBeVisible({ timeout: 8000 });
+    await expect(page.locator('[aria-live="polite"]')).toContainText(/sent|received|contact/i);
+  });
+
+  test("submits at mobile viewport (375px)", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/contact", { waitUntil: "networkidle" });
+    await page.fill('input[name="name"]', "Mobile User");
+    await page.fill('input[name="mobileNumber"]', "+91 9876543210");
+    await page.fill('input[name="email"]', "mobile@example.com");
+    await page.fill('textarea[name="message"]', "Mobile test message");
+    await page.click('button[type="submit"]');
+
+    await expect(page.locator('[aria-live="polite"]')).toBeVisible({ timeout: 8000 });
+    await expect(page.locator('[aria-live="polite"]')).toContainText(/sent|received|contact/i);
+  });
+});
+
 // ── Admin login page ─────────────────────────────────────────────────────
 test.describe("Admin login page", () => {
   test("renders login form with email pre-filled", async ({ page }) => {
@@ -102,6 +122,15 @@ test.describe("Admin login page", () => {
   test("redirects to login when accessing admin without auth", async ({ page }) => {
     await page.goto("/admin", { waitUntil: "networkidle" });
     await expect(page).toHaveURL(/\/admin\/login/, { timeout: 8000 });
+  });
+
+  test("shows error on invalid credentials", async ({ page }) => {
+    await page.goto("/admin/login", { waitUntil: "networkidle" });
+    await page.fill('input[type="email"]', "vidhantomar2004@gmail.com");
+    await page.fill('input[type="password"]', "wrongpassword");
+    await page.click('button[type="submit"]');
+    await expect(page.locator('[aria-live="polite"]')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('[aria-live="polite"]')).toContainText(/invalid/i);
   });
 });
 
@@ -204,6 +233,32 @@ test.describe("Admin export page", () => {
     await xlsxBtn.click();
     await expect(page.getByText("Preparing Excel...")).toBeVisible({ timeout: 5000 });
   });
+
+  test("downloads CSV file successfully", async ({ page }) => {
+    const [download] = await Promise.all([
+      page.waitForEvent("download", { timeout: 15000 }),
+      page.getByRole("button", { name: /download csv/i }).click(),
+    ]);
+    expect(download.suggestedFilename()).toMatch(/lakshya-bookings-.*\.csv/);
+  });
+
+  test("downloads XLSX file successfully", async ({ page }) => {
+    const [download] = await Promise.all([
+      page.waitForEvent("download", { timeout: 15000 }),
+      page.getByRole("button", { name: /download excel/i }).click(),
+    ]);
+    expect(download.suggestedFilename()).toMatch(/lakshya-bookings-.*\.xlsx/);
+  });
+});
+
+// ── Admin logout ─────────────────────────────────────────────────────────
+test.describe("Admin logout", () => {
+  test("logout redirects to login page", async ({ page }) => {
+    await loginAsAdmin(page);
+    await page.goto("/admin", { waitUntil: "networkidle" });
+    await page.locator("nav").getByText("Logout").click();
+    await expect(page).toHaveURL(/\/admin\/login/, { timeout: 8000 });
+  });
 });
 
 // ── General checks ───────────────────────────────────────────────────────
@@ -218,5 +273,30 @@ test.describe("General checks", () => {
     const adminLink = page.locator('footer a[aria-label="Admin login"]');
     await expect(adminLink).toBeVisible();
     await expect(adminLink).toHaveAttribute("href", "/admin/login");
+  });
+});
+
+// ── Mobile / responsive ──────────────────────────────────────────────────
+test.describe("Mobile responsive", () => {
+  test("MobileBar is visible at mobile viewport (375px)", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto("/", { waitUntil: "networkidle" });
+    const mobileBar = page.locator('.fixed.bottom-0');
+    await expect(mobileBar).toBeVisible();
+    await expect(mobileBar.getByText("WhatsApp")).toBeVisible();
+    await expect(mobileBar.getByText("Call")).toBeVisible();
+    await expect(mobileBar.getByText("Email")).toBeVisible();
+  });
+
+  test("MobileBar is hidden at desktop viewport (1280px)", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/", { waitUntil: "networkidle" });
+    await expect(page.locator('.fixed.bottom-0')).not.toBeVisible();
+  });
+
+  test("MobileBar hidden at tablet viewport (768px)", async ({ page }) => {
+    await page.setViewportSize({ width: 768, height: 1024 });
+    await page.goto("/", { waitUntil: "networkidle" });
+    await expect(page.locator('.fixed.bottom-0')).not.toBeVisible();
   });
 });

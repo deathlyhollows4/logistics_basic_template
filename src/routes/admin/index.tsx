@@ -7,6 +7,11 @@ import type { Booking, BookingStatus, ExportRange } from '../../lib/types'
 import { exportRanges } from '../../lib/validation'
 
 export const Route = createFileRoute('/admin/')({
+  head: () => ({
+    meta: [
+      { name: 'robots', content: 'noindex, nofollow' },
+    ],
+  }),
   beforeLoad: async ({ location }) => {
     const result = await checkAdminAuth()
     if (!result.authenticated) {

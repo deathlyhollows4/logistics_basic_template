@@ -5,6 +5,62 @@ import { PageFooter } from '../components/PageFooter'
 import { QuoteForm } from '../components/QuoteForm'
 
 export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Packers and Movers in Pune, Nigdi & PCMC — Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          'Trusted packers and movers serving Nigdi, Bhosari, Pimpri-Chinchwad and all Pune. Home shifting, office relocation, vehicle transport, warehousing. Free quote, insured moves. Call +91 8239059640.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'packers and movers Pune, movers and packers Pune, best packers and movers Pune, relocation services Pune, shifting services Pune, moving company Pune, packers movers near me',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Packers and Movers in Pune, Nigdi & PCMC — Lakshya Logistic Packers',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Trusted packers and movers serving Nigdi, Bhosari, Pimpri-Chinchwad and all Pune. Home shifting, office relocation, vehicle transport, warehousing. Free quote, insured moves. Call +91 8239059640.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Packers and Movers in Pune, Nigdi & PCMC — Lakshya Logistic Packers',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Trusted packers and movers serving Nigdi, Bhosari, Pimpri-Chinchwad and all Pune. Home shifting, office relocation, vehicle transport, warehousing. Free quote, insured moves. Call +91 8239059640.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [{ rel: 'canonical', href: 'https://habbits2grow.com' }],
+  }),
   component: LakshyaLogisticPackers,
 })
 
@@ -71,7 +127,74 @@ const testimonials = [
 
 function LakshyaLogisticPackers() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Lakshya Logistic Packers',
+            url: 'https://habbits2grow.com',
+            logo: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+            contactPoint: {
+              '@type': 'ContactPoint',
+              telephone: '+91-8239059640',
+              contactType: 'customer service',
+              areaServed: 'IN-MH',
+              availableLanguage: ['English', 'Hindi', 'Marathi'],
+            },
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress:
+                'Near Nigdi Bus Stop, Sector 23, Transport Nagar',
+              addressLocality: 'Nigdi',
+              addressRegion: 'Maharashtra',
+              postalCode: '411044',
+              addressCountry: 'IN',
+            },
+            sameAs: [],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Lakshya Logistic Packers',
+            url: 'https://habbits2grow.com',
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: {
+                '@type': 'EntryPoint',
+                urlTemplate:
+                  'https://habbits2grow.com/search?q={search_term_string}',
+              },
+              'query-input': 'required name=search_term_string',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 text-white">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-[1fr_0.9fr] md:items-center md:py-20">
           <div>
@@ -94,7 +217,12 @@ function LakshyaLogisticPackers() {
           <img
             alt="Logistics containers and freight operations"
             className="h-full max-h-[680px] w-full rounded-lg object-cover shadow-2xl"
+            fetchPriority="high"
+            width="1200"
+            height="800"
             src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop"
+            srcSet="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&auto=format&fit=crop 400w, https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop 1200w"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </section>
@@ -142,7 +270,13 @@ function LakshyaLogisticPackers() {
                 <img
                   alt={service.title}
                   className="mb-4 h-40 w-full rounded-lg object-cover"
+                  decoding="async"
+                  loading="lazy"
+                  width="1200"
+                  height="800"
                   src={service.image}
+                  srcSet={`${service.image.replace('w=1200', 'w=400')} 400w, ${service.image.replace('w=1200', 'w=800')} 800w, ${service.image} 1200w`}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <h3 className="mb-3 text-xl font-semibold">{service.title}</h3>
                 <p className="text-sm leading-6 text-slate-600">{service.desc}</p>
@@ -253,7 +387,13 @@ function LakshyaLogisticPackers() {
           <img
             alt="Moving truck on the road"
             className="h-full max-h-[560px] w-full rounded-lg object-cover shadow-xl"
+            decoding="async"
+            loading="lazy"
+            width="1200"
+            height="800"
             src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop"
+            srcSet="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=400&auto=format&fit=crop 400w, https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=800&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=1200&auto=format&fit=crop 1200w"
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
 
           <div>
@@ -340,6 +480,7 @@ function LakshyaLogisticPackers() {
 
       <MobileBar />
     </div>
+    </>
   )
 }
 

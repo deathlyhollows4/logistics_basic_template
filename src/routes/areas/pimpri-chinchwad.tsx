@@ -17,6 +17,67 @@ import { PageFooter } from '../../components/PageFooter'
 import { QuoteForm } from '../../components/QuoteForm'
 
 export const Route = createFileRoute('/areas/pimpri-chinchwad')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Packers and Movers in Pimpri-Chinchwad, Pune — Full-Service Relocation | Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          'Packers and movers in Pimpri-Chinchwad, Pune. Covering Pimple Saudagar, Rahatani, Kalewadi, Thergaon. Home shifting, office relocation, vehicle transport. PCMC natives. Free quote. Call +91 8239059640.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'packers and movers Pimpri-Chinchwad, home shifting Pimpri-Chinchwad, office relocation Pimpri-Chinchwad, bike transport Pimpri-Chinchwad, top movers Pimpri Chinchwad',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:title',
+        content:
+          'Packers and Movers in Pimpri-Chinchwad, Pune — Full-Service Relocation | Lakshya Logistic Packers',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Packers and movers in Pimpri-Chinchwad, Pune. Covering Pimple Saudagar, Rahatani, Kalewadi, Thergaon. Home shifting, office relocation, vehicle transport. PCMC natives. Free quote.',
+      },
+      {
+        property: 'og:url',
+        content: 'https://habbits2grow.com/areas/pimpri-chinchwad',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Packers and Movers in Pimpri-Chinchwad, Pune — Full-Service Relocation | Lakshya Logistic Packers',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Packers and movers in Pimpri-Chinchwad, Pune. Covering Pimple Saudagar, Rahatani, Kalewadi, Thergaon. Home shifting, office relocation, vehicle transport. PCMC natives. Free quote.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/areas/pimpri-chinchwad',
+      },
+    ],
+  }),
   component: PimpriChinchwadAreaPage,
 })
 
@@ -90,7 +151,79 @@ const serviceCards = [
 ]
 
 function PimpriChinchwadAreaPage() {
-  return (
+  return (<>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'Lakshya Logistic Packers',
+            image:
+              'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+            '@id':
+              'https://habbits2grow.com/areas/pimpri-chinchwad#localbusiness',
+            url: 'https://habbits2grow.com/areas/pimpri-chinchwad',
+            telephone: '+91-8239059640',
+            priceRange: '₹₹',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress:
+                'Near Nigdi Bus Stop, Sector 23, Transport Nagar',
+              addressLocality: 'Nigdi',
+              addressRegion: 'Maharashtra',
+              postalCode: '411044',
+              addressCountry: 'IN',
+            },
+            areaServed: {
+              '@type': 'City',
+              name: 'Pimpri-Chinchwad',
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: [
+                'Monday',
+                'Tuesday',
+                'Wednesday',
+                'Thursday',
+                'Friday',
+                'Saturday',
+              ],
+              opens: '09:00',
+              closes: '19:00',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Areas',
+                item: 'https://habbits2grow.com/areas/pimpri-chinchwad',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Pimpri-Chinchwad',
+                item: 'https://habbits2grow.com/areas/pimpri-chinchwad',
+              },
+            ],
+          }),
+        }}
+      />
     <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-14 text-white md:py-20">
         <div className="mx-auto max-w-6xl">
@@ -234,5 +367,5 @@ function PimpriChinchwadAreaPage() {
       <PageFooter />
       <MobileBar />
     </div>
-  )
+  </>)
 }

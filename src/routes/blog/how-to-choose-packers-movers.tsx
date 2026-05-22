@@ -4,12 +4,144 @@ import { MobileBar } from '../../components/MobileBar'
 import { PageFooter } from '../../components/PageFooter'
 
 export const Route = createFileRoute('/blog/how-to-choose-packers-movers')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'How to Choose Packers and Movers in Pune — 10-Point Checklist (2026) | Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          '10 things to verify before hiring packers and movers in Pune. IBA certification, GST check, insurance, reviews, red flags. Avoid moving scams. Free checklist included.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'how to choose packers and movers, things to check before hiring packers movers, packers movers verification checklist, avoid moving scams Pune',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'article' },
+      {
+        property: 'og:title',
+        content:
+          'How to Choose Packers and Movers in Pune — 10-Point Checklist (2026)',
+      },
+      {
+        property: 'og:description',
+        content:
+          '10 things to verify before hiring packers and movers in Pune. IBA certification, GST check, insurance, reviews, red flags. Avoid moving scams.',
+      },
+      {
+        property: 'og:url',
+        content:
+          'https://habbits2grow.com/blog/how-to-choose-packers-movers',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+      {
+        property: 'article:published_time',
+        content: '2026-05-22T00:00:00+05:30',
+      },
+      {
+        property: 'article:author',
+        content: 'Lakshya Logistic Packers',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'How to Choose Packers and Movers in Pune — 10-Point Checklist (2026)',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          '10 things to verify before hiring packers and movers in Pune. IBA certification, GST check, insurance, reviews, red flags. Avoid moving scams.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/blog/how-to-choose-packers-movers',
+      },
+    ],
+  }),
   component: BlogHowToChoosePackersMovers,
 })
 
 function BlogHowToChoosePackersMovers() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline:
+              'How to Choose Packers and Movers in Pune — 10-Point Checklist (2026)',
+            description:
+              '10 things to verify before hiring packers and movers in Pune. IBA certification, GST check, insurance, reviews, red flags.',
+            author: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+              },
+            },
+            datePublished: '2026-05-22',
+            dateModified: '2026-05-22',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id':
+                'https://habbits2grow.com/blog/how-to-choose-packers-movers',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://habbits2grow.com/blog/how-to-choose-packers-movers',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'How to Choose Packers and Movers',
+                item: 'https://habbits2grow.com/blog/how-to-choose-packers-movers',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-12 text-white md:py-16">
         <div className="mx-auto max-w-3xl">
           <Link to="/" className="mb-4 inline-flex items-center gap-1 text-sm text-blue-200 hover:text-white">
@@ -204,5 +336,6 @@ function BlogHowToChoosePackersMovers() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

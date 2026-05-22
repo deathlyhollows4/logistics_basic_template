@@ -4,12 +4,179 @@ import { MobileBar } from '../../components/MobileBar'
 import { PageFooter } from '../../components/PageFooter'
 
 export const Route = createFileRoute('/blog/packers-movers-charges-pune')({
+  head: () => ({
+    meta: [
+      {
+        title:
+          'Packers and Movers Charges in Pune 2026 — Complete Cost Guide | Lakshya Logistic Packers',
+      },
+      {
+        name: 'description',
+        content:
+          'Complete breakdown of packers and movers charges in Pune. 1BHK/2BHK/3BHK shifting costs, intercity rates, hidden charges to avoid, and money-saving tips. Get transparent quote.',
+      },
+      {
+        name: 'keywords',
+        content:
+          'packers and movers charges Pune, cost of shifting in Pune, residential shifting cost Pune, 1BHK 2BHK 3BHK shifting cost Pune, hidden charges packers movers, local shifting charges per km',
+      },
+      { name: 'robots', content: 'index, follow' },
+      { property: 'og:type', content: 'article' },
+      {
+        property: 'og:title',
+        content:
+          'Packers and Movers Charges in Pune 2026 — Complete Cost Guide',
+      },
+      {
+        property: 'og:description',
+        content:
+          'Complete breakdown of packers and movers charges in Pune. 1BHK/2BHK/3BHK shifting costs, intercity rates, hidden charges to avoid, and money-saving tips.',
+      },
+      {
+        property: 'og:url',
+        content:
+          'https://habbits2grow.com/blog/packers-movers-charges-pune',
+      },
+      {
+        property: 'og:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+      {
+        property: 'article:published_time',
+        content: '2026-05-22T00:00:00+05:30',
+      },
+      {
+        property: 'article:author',
+        content: 'Lakshya Logistic Packers',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      {
+        name: 'twitter:title',
+        content:
+          'Packers and Movers Charges in Pune 2026 — Complete Cost Guide',
+      },
+      {
+        name: 'twitter:description',
+        content:
+          'Complete breakdown of packers and movers charges in Pune. 1BHK/2BHK/3BHK shifting costs, intercity rates, hidden charges to avoid, and money-saving tips.',
+      },
+      {
+        name: 'twitter:image',
+        content:
+          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop',
+      },
+    ],
+    links: [
+      {
+        rel: 'canonical',
+        href: 'https://habbits2grow.com/blog/packers-movers-charges-pune',
+      },
+    ],
+  }),
   component: BlogPackersMoversChargesPune,
 })
 
 function BlogPackersMoversChargesPune() {
   return (
-    <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline:
+              'Packers and Movers Charges in Pune 2026 — Complete Cost Guide',
+            description:
+              'Complete breakdown of packers and movers charges in Pune. 1BHK/2BHK/3BHK shifting costs, intercity rates, hidden charges to avoid.',
+            author: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Lakshya Logistic Packers',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&auto=format&fit=crop',
+              },
+            },
+            datePublished: '2026-05-22',
+            dateModified: '2026-05-22',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id':
+                'https://habbits2grow.com/blog/packers-movers-charges-pune',
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'What are packers and movers charges in Pune for 1BHK shifting?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: '1BHK shifting within Pune typically costs between Rs 4,000 to Rs 8,000 depending on the distance, volume of goods, and packing requirements.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Are there any hidden charges in packers and movers quotes?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Common hidden charges include extra for heavy items, stair climbing fees, additional packing materials, and GST. Lakshya Logistic Packers provides transparent pricing with no hidden costs.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How can I save money on packers and movers in Pune?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Book early, avoid peak season, declutter before moving, compare multiple quotes, and ask for a detailed estimate that includes all charges.',
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://habbits2grow.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://habbits2grow.com/blog/packers-movers-charges-pune',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Packers and Movers Charges in Pune 2026',
+                item: 'https://habbits2grow.com/blog/packers-movers-charges-pune',
+              },
+            ],
+          }),
+        }}
+      />
+      <div className="min-h-screen bg-slate-100 pb-16 text-slate-900 md:pb-0">
       <section className="bg-blue-950 px-6 py-12 text-white md:py-16">
         <div className="mx-auto max-w-3xl">
           <Link to="/" className="mb-4 inline-flex items-center gap-1 text-sm text-blue-200 hover:text-white">
@@ -282,5 +449,6 @@ function BlogPackersMoversChargesPune() {
       <PageFooter />
       <MobileBar />
     </div>
+    </>
   )
 }

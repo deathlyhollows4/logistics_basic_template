@@ -2,10 +2,26 @@
 
 ## Next Session — Continue Here
 
+### Status
+- **33 tests**, all passing
+- **TypeScript**: clean (`tsc --noEmit`)
+- **Dev server**: `npm run dev` → `http://127.0.0.1:3000`
+- **GitNexus**: 498 nodes, 795 edges, 21 clusters, 39 flows
+
+### First Commands (run on resume)
+```bash
+npm run dev                          # Start dev server
+npx playwright test --reporter=list  # Verify 33/33 pass
+npm run typecheck                    # Verify no TS errors
 ```
-TASK: Review and refine mobile UX — test contact page form, verify alerts on all forms, check responsive breakpoints.
-      GitNexus index: 495 nodes, 791 edges, 20 clusters, 39 flows.
-```
+
+### Suggested Tasks (pick one or stack them)
+| Priority | Task |
+|---|---|
+| High | Add service area pages at `/areas/{slug}` (Nigdi, Bhosari, etc. — 10 slugs in `index.tsx:38-49`) |
+| Medium | Test at `sm:` breakpoint (640px) — current tests only cover 375/768/1280 |
+| Medium | Add focus-visible ring styles to form inputs for keyboard accessibility |
+| Low | Add `data/contacts.json` viewer to admin panel (mirrors bookings dashboard) |
 
 ---
 
@@ -30,6 +46,13 @@ TASK: Review and refine mobile UX — test contact page form, verify alerts on a
 | 15 | Created `POST /api/contact` endpoint with rate limiting and Supabase/local JSON storage |
 | 16 | Added `alert('Our team will reach you soon.')` on both booking and contact form success |
 | 17 | Re-analyzed: 495 nodes, 791 edges, 20 clusters, 39 flows |
+| 18 | **Removed** `alert()` from QuoteForm and ContactPage — inline `aria-live` messages are sufficient |
+| 19 | Added 2 contact page tests: rendering + successful submission |
+| 20 | Added 3 mobile viewport tests: MobileBar visibility at 375/768/1280px |
+| 21 | Fixed admin E2E auth: created `tests/utils.ts` with cookie-injection helper (no password needed) |
+| 22 | Merged `crawl.spec.ts` into `site.spec.ts` (added invalid-credential, logout, CSV/XLSX download tests) |
+| 23 | Made Booking/Contact test blocks serial to fix rate-limiting failures |
+| 24 | All 33 tests pass, typecheck clean |
 
 ---
 
@@ -159,16 +182,19 @@ npx playwright test
 npx playwright test -g "Admin export"
 ```
 
-### Test Coverage (23 tests)
+### Test Coverage (33 tests)
 
 | Suite | Tests | What it covers |
 |---|---|---|
 | Landing page | 3 | Hero, services, why choose us, contact, footer |
-| Booking form | 4 | Empty validation, successful submit, form reset, honeypot |
-| Admin login page | 2 | Form rendering, unauthenticated redirect |
+| Booking form | 4 | Empty validation, successful submit, form reset, honeypot **(serial)** |
+| Contact page | 3 | Form rendering, successful submit, submit at mobile viewport **(serial)** |
+| Admin login page | 3 | Form rendering, unauthenticated redirect, invalid credentials |
 | Admin dashboard | 7 | Status cards, table, filters, refresh, navigation, detail modal, status update, export link |
-| Admin export page | 5 | Filters, preview table, CSV/XLSX buttons, button state changes |
+| Admin export page | 7 | Filters, preview table, CSV/XLSX buttons, loading states, CSV/XLSX file downloads |
+| Admin logout | 1 | Logout redirects to login |
 | General | 2 | Page title, admin footer link |
+| Mobile responsive | 3 | MobileBar visible at 375px, hidden at 768px and 1280px |
 
 ### Adding Tests
 
@@ -234,7 +260,8 @@ git push https://github.com/deathlyhollows4/kind-package-tracker.git main --forc
 | `data/bookings.json` | Local booking store (dev only) | **No** (gitignored) |
 | `.claude/`, `AGENTS.md`, `CLAUDE.md` | GitNexus-generated agent files | **No** (untracked) |
 | `playwright.config.ts` | Playwright test config | **Yes** |
-| `tests/site.spec.ts` | E2E test suite | **Yes** |
+| `tests/site.spec.ts` | E2E test suite (33 tests) | **Yes** |
+| `tests/utils.ts` | Test helpers: session cookie generator | **Yes** |
 
 ---
 
