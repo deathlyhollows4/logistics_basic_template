@@ -12,6 +12,18 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as ServicesWarehousingStoragePuneRouteImport } from './routes/services/warehousing-storage-pune'
+import { Route as ServicesOfficeRelocationPuneRouteImport } from './routes/services/office-relocation-pune'
+import { Route as ServicesHomeShiftingPuneRouteImport } from './routes/services/home-shifting-pune'
+import { Route as ServicesCarBikeTransportPuneRouteImport } from './routes/services/car-bike-transport-pune'
+import { Route as BlogPackingTipsForMovingRouteImport } from './routes/blog/packing-tips-for-moving'
+import { Route as BlogPackersMoversChargesPuneRouteImport } from './routes/blog/packers-movers-charges-pune'
+import { Route as BlogMovingDuringMonsoonPuneRouteImport } from './routes/blog/moving-during-monsoon-pune'
+import { Route as BlogHowToChoosePackersMoversRouteImport } from './routes/blog/how-to-choose-packers-movers'
+import { Route as BlogDocumentsForVehicleTransportRouteImport } from './routes/blog/documents-for-vehicle-transport'
+import { Route as AreasPimpriChinchwadRouteImport } from './routes/areas/pimpri-chinchwad'
+import { Route as AreasNigdiRouteImport } from './routes/areas/nigdi'
+import { Route as AreasBhosariRouteImport } from './routes/areas/bhosari'
 import { Route as ApiContactRouteImport } from './routes/api/contact'
 import { Route as ApiBookingsRouteImport } from './routes/api/bookings'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
@@ -35,6 +47,75 @@ const IndexRoute = IndexRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/admin/',
   path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesWarehousingStoragePuneRoute =
+  ServicesWarehousingStoragePuneRouteImport.update({
+    id: '/services/warehousing-storage-pune',
+    path: '/services/warehousing-storage-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesOfficeRelocationPuneRoute =
+  ServicesOfficeRelocationPuneRouteImport.update({
+    id: '/services/office-relocation-pune',
+    path: '/services/office-relocation-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesHomeShiftingPuneRoute =
+  ServicesHomeShiftingPuneRouteImport.update({
+    id: '/services/home-shifting-pune',
+    path: '/services/home-shifting-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesCarBikeTransportPuneRoute =
+  ServicesCarBikeTransportPuneRouteImport.update({
+    id: '/services/car-bike-transport-pune',
+    path: '/services/car-bike-transport-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogPackingTipsForMovingRoute =
+  BlogPackingTipsForMovingRouteImport.update({
+    id: '/blog/packing-tips-for-moving',
+    path: '/blog/packing-tips-for-moving',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogPackersMoversChargesPuneRoute =
+  BlogPackersMoversChargesPuneRouteImport.update({
+    id: '/blog/packers-movers-charges-pune',
+    path: '/blog/packers-movers-charges-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogMovingDuringMonsoonPuneRoute =
+  BlogMovingDuringMonsoonPuneRouteImport.update({
+    id: '/blog/moving-during-monsoon-pune',
+    path: '/blog/moving-during-monsoon-pune',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogHowToChoosePackersMoversRoute =
+  BlogHowToChoosePackersMoversRouteImport.update({
+    id: '/blog/how-to-choose-packers-movers',
+    path: '/blog/how-to-choose-packers-movers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogDocumentsForVehicleTransportRoute =
+  BlogDocumentsForVehicleTransportRouteImport.update({
+    id: '/blog/documents-for-vehicle-transport',
+    path: '/blog/documents-for-vehicle-transport',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AreasPimpriChinchwadRoute = AreasPimpriChinchwadRouteImport.update({
+  id: '/areas/pimpri-chinchwad',
+  path: '/areas/pimpri-chinchwad',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasNigdiRoute = AreasNigdiRouteImport.update({
+  id: '/areas/nigdi',
+  path: '/areas/nigdi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasBhosariRoute = AreasBhosariRouteImport.update({
+  id: '/areas/bhosari',
+  path: '/areas/bhosari',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiContactRoute = ApiContactRouteImport.update({
@@ -90,6 +171,18 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/nigdi': typeof AreasNigdiRoute
+  '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
+  '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
+  '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
+  '/blog/packers-movers-charges-pune': typeof BlogPackersMoversChargesPuneRoute
+  '/blog/packing-tips-for-moving': typeof BlogPackingTipsForMovingRoute
+  '/services/car-bike-transport-pune': typeof ServicesCarBikeTransportPuneRoute
+  '/services/home-shifting-pune': typeof ServicesHomeShiftingPuneRoute
+  '/services/office-relocation-pune': typeof ServicesOfficeRelocationPuneRoute
+  '/services/warehousing-storage-pune': typeof ServicesWarehousingStoragePuneRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -104,6 +197,18 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/nigdi': typeof AreasNigdiRoute
+  '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
+  '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
+  '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
+  '/blog/packers-movers-charges-pune': typeof BlogPackersMoversChargesPuneRoute
+  '/blog/packing-tips-for-moving': typeof BlogPackingTipsForMovingRoute
+  '/services/car-bike-transport-pune': typeof ServicesCarBikeTransportPuneRoute
+  '/services/home-shifting-pune': typeof ServicesHomeShiftingPuneRoute
+  '/services/office-relocation-pune': typeof ServicesOfficeRelocationPuneRoute
+  '/services/warehousing-storage-pune': typeof ServicesWarehousingStoragePuneRoute
   '/admin': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -119,6 +224,18 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/api/bookings': typeof ApiBookingsRoute
   '/api/contact': typeof ApiContactRoute
+  '/areas/bhosari': typeof AreasBhosariRoute
+  '/areas/nigdi': typeof AreasNigdiRoute
+  '/areas/pimpri-chinchwad': typeof AreasPimpriChinchwadRoute
+  '/blog/documents-for-vehicle-transport': typeof BlogDocumentsForVehicleTransportRoute
+  '/blog/how-to-choose-packers-movers': typeof BlogHowToChoosePackersMoversRoute
+  '/blog/moving-during-monsoon-pune': typeof BlogMovingDuringMonsoonPuneRoute
+  '/blog/packers-movers-charges-pune': typeof BlogPackersMoversChargesPuneRoute
+  '/blog/packing-tips-for-moving': typeof BlogPackingTipsForMovingRoute
+  '/services/car-bike-transport-pune': typeof ServicesCarBikeTransportPuneRoute
+  '/services/home-shifting-pune': typeof ServicesHomeShiftingPuneRoute
+  '/services/office-relocation-pune': typeof ServicesOfficeRelocationPuneRoute
+  '/services/warehousing-storage-pune': typeof ServicesWarehousingStoragePuneRoute
   '/admin/': typeof AdminIndexRoute
   '/api/admin/bookings': typeof ApiAdminBookingsRoute
   '/api/admin/export': typeof ApiAdminExportRoute
@@ -135,6 +252,18 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/bhosari'
+    | '/areas/nigdi'
+    | '/areas/pimpri-chinchwad'
+    | '/blog/documents-for-vehicle-transport'
+    | '/blog/how-to-choose-packers-movers'
+    | '/blog/moving-during-monsoon-pune'
+    | '/blog/packers-movers-charges-pune'
+    | '/blog/packing-tips-for-moving'
+    | '/services/car-bike-transport-pune'
+    | '/services/home-shifting-pune'
+    | '/services/office-relocation-pune'
+    | '/services/warehousing-storage-pune'
     | '/admin/'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -149,6 +278,18 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/bhosari'
+    | '/areas/nigdi'
+    | '/areas/pimpri-chinchwad'
+    | '/blog/documents-for-vehicle-transport'
+    | '/blog/how-to-choose-packers-movers'
+    | '/blog/moving-during-monsoon-pune'
+    | '/blog/packers-movers-charges-pune'
+    | '/blog/packing-tips-for-moving'
+    | '/services/car-bike-transport-pune'
+    | '/services/home-shifting-pune'
+    | '/services/office-relocation-pune'
+    | '/services/warehousing-storage-pune'
     | '/admin'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -163,6 +304,18 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/api/bookings'
     | '/api/contact'
+    | '/areas/bhosari'
+    | '/areas/nigdi'
+    | '/areas/pimpri-chinchwad'
+    | '/blog/documents-for-vehicle-transport'
+    | '/blog/how-to-choose-packers-movers'
+    | '/blog/moving-during-monsoon-pune'
+    | '/blog/packers-movers-charges-pune'
+    | '/blog/packing-tips-for-moving'
+    | '/services/car-bike-transport-pune'
+    | '/services/home-shifting-pune'
+    | '/services/office-relocation-pune'
+    | '/services/warehousing-storage-pune'
     | '/admin/'
     | '/api/admin/bookings'
     | '/api/admin/export'
@@ -178,6 +331,18 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   ApiBookingsRoute: typeof ApiBookingsRoute
   ApiContactRoute: typeof ApiContactRoute
+  AreasBhosariRoute: typeof AreasBhosariRoute
+  AreasNigdiRoute: typeof AreasNigdiRoute
+  AreasPimpriChinchwadRoute: typeof AreasPimpriChinchwadRoute
+  BlogDocumentsForVehicleTransportRoute: typeof BlogDocumentsForVehicleTransportRoute
+  BlogHowToChoosePackersMoversRoute: typeof BlogHowToChoosePackersMoversRoute
+  BlogMovingDuringMonsoonPuneRoute: typeof BlogMovingDuringMonsoonPuneRoute
+  BlogPackersMoversChargesPuneRoute: typeof BlogPackersMoversChargesPuneRoute
+  BlogPackingTipsForMovingRoute: typeof BlogPackingTipsForMovingRoute
+  ServicesCarBikeTransportPuneRoute: typeof ServicesCarBikeTransportPuneRoute
+  ServicesHomeShiftingPuneRoute: typeof ServicesHomeShiftingPuneRoute
+  ServicesOfficeRelocationPuneRoute: typeof ServicesOfficeRelocationPuneRoute
+  ServicesWarehousingStoragePuneRoute: typeof ServicesWarehousingStoragePuneRoute
   AdminIndexRoute: typeof AdminIndexRoute
   ApiAdminBookingsRoute: typeof ApiAdminBookingsRoute
   ApiAdminExportRoute: typeof ApiAdminExportRoute
@@ -207,6 +372,90 @@ declare module '@tanstack/react-router' {
       path: '/admin'
       fullPath: '/admin/'
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/warehousing-storage-pune': {
+      id: '/services/warehousing-storage-pune'
+      path: '/services/warehousing-storage-pune'
+      fullPath: '/services/warehousing-storage-pune'
+      preLoaderRoute: typeof ServicesWarehousingStoragePuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/office-relocation-pune': {
+      id: '/services/office-relocation-pune'
+      path: '/services/office-relocation-pune'
+      fullPath: '/services/office-relocation-pune'
+      preLoaderRoute: typeof ServicesOfficeRelocationPuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/home-shifting-pune': {
+      id: '/services/home-shifting-pune'
+      path: '/services/home-shifting-pune'
+      fullPath: '/services/home-shifting-pune'
+      preLoaderRoute: typeof ServicesHomeShiftingPuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/car-bike-transport-pune': {
+      id: '/services/car-bike-transport-pune'
+      path: '/services/car-bike-transport-pune'
+      fullPath: '/services/car-bike-transport-pune'
+      preLoaderRoute: typeof ServicesCarBikeTransportPuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/packing-tips-for-moving': {
+      id: '/blog/packing-tips-for-moving'
+      path: '/blog/packing-tips-for-moving'
+      fullPath: '/blog/packing-tips-for-moving'
+      preLoaderRoute: typeof BlogPackingTipsForMovingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/packers-movers-charges-pune': {
+      id: '/blog/packers-movers-charges-pune'
+      path: '/blog/packers-movers-charges-pune'
+      fullPath: '/blog/packers-movers-charges-pune'
+      preLoaderRoute: typeof BlogPackersMoversChargesPuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/moving-during-monsoon-pune': {
+      id: '/blog/moving-during-monsoon-pune'
+      path: '/blog/moving-during-monsoon-pune'
+      fullPath: '/blog/moving-during-monsoon-pune'
+      preLoaderRoute: typeof BlogMovingDuringMonsoonPuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/how-to-choose-packers-movers': {
+      id: '/blog/how-to-choose-packers-movers'
+      path: '/blog/how-to-choose-packers-movers'
+      fullPath: '/blog/how-to-choose-packers-movers'
+      preLoaderRoute: typeof BlogHowToChoosePackersMoversRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/documents-for-vehicle-transport': {
+      id: '/blog/documents-for-vehicle-transport'
+      path: '/blog/documents-for-vehicle-transport'
+      fullPath: '/blog/documents-for-vehicle-transport'
+      preLoaderRoute: typeof BlogDocumentsForVehicleTransportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/pimpri-chinchwad': {
+      id: '/areas/pimpri-chinchwad'
+      path: '/areas/pimpri-chinchwad'
+      fullPath: '/areas/pimpri-chinchwad'
+      preLoaderRoute: typeof AreasPimpriChinchwadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/nigdi': {
+      id: '/areas/nigdi'
+      path: '/areas/nigdi'
+      fullPath: '/areas/nigdi'
+      preLoaderRoute: typeof AreasNigdiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas/bhosari': {
+      id: '/areas/bhosari'
+      path: '/areas/bhosari'
+      fullPath: '/areas/bhosari'
+      preLoaderRoute: typeof AreasBhosariRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/contact': {
@@ -282,6 +531,18 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   ApiBookingsRoute: ApiBookingsRoute,
   ApiContactRoute: ApiContactRoute,
+  AreasBhosariRoute: AreasBhosariRoute,
+  AreasNigdiRoute: AreasNigdiRoute,
+  AreasPimpriChinchwadRoute: AreasPimpriChinchwadRoute,
+  BlogDocumentsForVehicleTransportRoute: BlogDocumentsForVehicleTransportRoute,
+  BlogHowToChoosePackersMoversRoute: BlogHowToChoosePackersMoversRoute,
+  BlogMovingDuringMonsoonPuneRoute: BlogMovingDuringMonsoonPuneRoute,
+  BlogPackersMoversChargesPuneRoute: BlogPackersMoversChargesPuneRoute,
+  BlogPackingTipsForMovingRoute: BlogPackingTipsForMovingRoute,
+  ServicesCarBikeTransportPuneRoute: ServicesCarBikeTransportPuneRoute,
+  ServicesHomeShiftingPuneRoute: ServicesHomeShiftingPuneRoute,
+  ServicesOfficeRelocationPuneRoute: ServicesOfficeRelocationPuneRoute,
+  ServicesWarehousingStoragePuneRoute: ServicesWarehousingStoragePuneRoute,
   AdminIndexRoute: AdminIndexRoute,
   ApiAdminBookingsRoute: ApiAdminBookingsRoute,
   ApiAdminExportRoute: ApiAdminExportRoute,
