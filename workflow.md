@@ -1,9 +1,18 @@
 # Project Workflow
 
+## Next Session — Continue Here
+
+```
+TASK: Review and refine mobile UX — test contact page form, verify alerts on all forms, check responsive breakpoints.
+      GitNexus index: 495 nodes, 791 edges, 20 clusters, 39 flows.
+```
+
+---
+
 ## What Was Done
 
 | Step | Description |
-|---|---|
+|---|---|---|
 | 1 | Initialized TanStack Start + React + TypeScript + Tailwind CSS v4 project |
 | 2 | Built public booking form with server-side validation, honeypot spam protection |
 | 3 | Built admin panel: login (scrypt hash auth), booking dashboard, status management, detail modal |
@@ -13,6 +22,14 @@
 | 7 | Set up Playwright E2E testing (23 tests covering all pages and interactions) |
 | 8 | Indexed with GitNexus code intelligence (257 symbols, 479 edges, 21 flows) |
 | 9 | Synced to `deathlyhollows4/kind-package-tracker` |
+| 10 | Re-analyzed with GitNexus (439 nodes, 719 edges, 18 clusters, 36 flows) |
+| 11 | GitNexus web server running at `http://localhost:4747` (background process) |
+| 12 | Explored GitNexus dashboard via Playwright — graph, processes (39), communities (20), search, AGENTS.md |
+| 13 | Added mobile sticky bottom bar (WhatsApp / Call / Email) visible on landing without scroll |
+| 14 | Created `/contact` page with form (name, mobile, email, subject, message) + honeypot |
+| 15 | Created `POST /api/contact` endpoint with rate limiting and Supabase/local JSON storage |
+| 16 | Added `alert('Our team will reach you soon.')` on both booking and contact form success |
+| 17 | Re-analyzed: 495 nodes, 791 edges, 20 clusters, 39 flows |
 
 ---
 
@@ -23,19 +40,23 @@ src/
 ├── lib/                    # Server-only libraries
 │   ├── auth.server.ts      # Admin auth (scrypt hash, HMAC session tokens, cookies)
 │   ├── bookings.server.ts  # Booking CRUD (Supabase or local JSON fallback)
+│   ├── contact.server.ts   # Contact message storage (Supabase or local JSON fallback)
 │   ├── env.server.ts       # Environment variable readers
 │   ├── export.server.ts    # CSV/XLSX generation (ExcelJS)
+│   ├── rate-limit.server.ts # Rate limiting (booking, login, contact)
 │   ├── types.ts            # Shared TypeScript types
 │   └── validation.ts       # Input validation, export range parser
 ├── routes/
 │   ├── __root.tsx           # Root layout + head metadata
-│   ├── index.tsx            # Public landing page with booking form
+│   ├── index.tsx            # Public landing page with booking form + mobile sticky bar
+│   ├── contact.tsx          # Contact form page (name, mobile, email, subject, message)
 │   ├── admin/
 │   │   ├── login.tsx        # Admin login page
 │   │   ├── index.tsx        # Admin dashboard (booking list, status, detail modal)
 │   │   └── export.tsx       # Export page (time filter, preview, CSV/XLSX downloads)
 │   └── api/
 │       ├── bookings.ts      # POST /api/bookings (public)
+│       ├── contact.ts       # POST /api/contact (public)
 │       └── admin/
 │           ├── login.ts     # POST /api/admin/login
 │           ├── logout.ts    # POST /api/admin/logout
@@ -58,6 +79,9 @@ src/
 
 **Export download:**
 `admin/export.tsx` → `GET /api/admin/export?range=&format=` → `bookings.server.listBookings()` → `export.server.bookingsToCsv()` or `bookingsToXlsx()`
+
+**Contact form submission:**
+`contact.tsx` form → `POST /api/contact` → `validation.validateContactInput()` → `contact.server.storeMessage()` → Supabase or `data/contacts.json`
 
 ---
 
