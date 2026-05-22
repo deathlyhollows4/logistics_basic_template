@@ -1,7 +1,46 @@
+import { createReadStream } from "node:fs";
+import { access } from "node:fs/promises";
 import { createServer } from "node:http";
+import { extname, join, normalize, resolve, sep } from "node:path";
 import server from "./dist/server/server.js";
 
 const port = process.env.PORT || 3000;
+const CLIENT_DIR = resolve("dist", "client");
+
+const MIME = {
+  ".css": "text/css",
+  ".ico": "image/x-icon",
+  ".js": "text/javascript",
+  ".json": "application/json",
+  ".map": "application/json",
+  ".png": "image/png",
+  ".svg": "image/svg+xml",
+  ".webp": "image/webp",
+  ".woff2": "font/woff2",
+};
+
+function serveStatic(req, res) {
+  if (req.method !== "GET" && req.method !== "HEAD") return false;
+
+  const safe = normalize(req.url.split("?")[0]).replace(/^(\.\.[/\\])+/, "");
+  const filePath = join(CLIENT_DIR, safe);
+
+  if (!filePath.startsWith(CLIENT_DIR + sep)) return false;
+
+  return access(filePath)
+    .then(() => {
+      const ext = extname(filePath).toLowerCase();
+      const contentType = MIME[ext] || "application/octet-stream";
+      const stream = createReadStream(filePath);
+      res.writeHead(200, {
+        "Content-Type": contentType,
+        "Cache-Control": "public, max-age=31536000, immutable",
+      });
+      stream.pipe(res);
+      return true;
+    })
+    .catch(() => false);
+}
 
 function readBody(req) {
   return new Promise((resolve, reject) => {
@@ -50,6 +89,9 @@ function createRequestProxy(req) {
 
 createServer(async (req, res) => {
   try {
+    const served = await serveStatic(req, res);
+    if (served) return;
+
     const proxyReq = createRequestProxy(req);
     const response = await server.fetch(proxyReq);
 
