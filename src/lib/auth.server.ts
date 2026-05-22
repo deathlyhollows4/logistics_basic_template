@@ -4,7 +4,7 @@ const sessionCookieName = 'lakshya_admin_session'
 const sessionMaxAgeSeconds = 60 * 60 * 8
 
 const HARDCODED_EMAIL = 'vidhantomar2004@gmail.com'
-const HARDCODED_HASH = 'scrypt:16384:dad0a1cf5e2a7343a2aa6199409870fa:62f8ecd2488f2da4e502cdc409cf035e91c253c7272c9c6dc9803b44d77150ff7f4d991899308630a2477d44b636434dccbc24b888723786ae3289f052f10d79'
+const HARDCODED_HASH = 'scrypt:16384:e5816891e48a17b3dd245ebccac5c18d:7485de81dd17d2798b8f4ba7fa17baf6b74ba3d09af241290015b69aee08459ba4634ab27efb58e177b618c95e30335c7ced00f782d3615e3e916beb8e6f63a7'
 const HARDCODED_SESSION_SECRET = 'lakshya-prod-session-secret-2026-do-not-expose'
 
 type AdminSession = {
