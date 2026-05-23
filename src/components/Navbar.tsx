@@ -37,9 +37,9 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
         <Link to="/" className="inline-flex shrink-0 items-center">
-          <img src="/logo.webp" alt="Lakshya Logistic Packers" width="301" height="168" className="h-14 w-auto" />
+          <img src="/logo.webp" alt="Lakshya Logistic Packers" width="928" height="224" className="h-14 w-auto" />
         </Link>
 
         <nav
