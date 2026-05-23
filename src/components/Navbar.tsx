@@ -38,8 +38,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-        <Link to="/" className="text-lg font-bold text-blue-950">
-          Lakshya Logistic Packers
+        <Link to="/" className="inline-flex items-center">
+          <img src="/logo.webp" alt="Lakshya Logistic Packers" width="160" height="40" className="h-10 w-auto" />
         </Link>
 
         <nav

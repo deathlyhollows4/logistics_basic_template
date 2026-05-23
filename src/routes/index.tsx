@@ -239,7 +239,7 @@ function LakshyaLogisticPackers() {
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-sm">
               <MapPin aria-hidden="true" className="mx-auto mb-3 text-orange-500" size={32} />
-              <h3 className="text-4xl font-bold text-blue-950">4</h3>
+              <h3 className="text-4xl font-bold text-blue-950">125+</h3>
               <p className="mt-2 text-sm text-slate-600">Cities Coverage</p>
             </div>
             <div className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-sm">
